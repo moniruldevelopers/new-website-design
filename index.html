@@ -1132,8 +1132,38 @@ footer.visible{opacity:1;transform:none;}
 .adm-card.visible .steps li:nth-child(4){opacity:1;transform:none;transition-delay:.34s;}
 .adm-card.visible .steps li:nth-child(5){opacity:1;transform:none;transition-delay:.42s;}
 
-/* Disable for reduced-motion */
-@media(prefers-reduced-motion:reduce){
+/* ══ PERFORMANCE HINTS ══ */
+/* Smooth scrolling on touch devices */
+html{-webkit-overflow-scrolling:touch;touch-action:pan-y;}
+/* Only apply will-change where animation actually happens */
+.reveal{will-change:opacity,transform;}
+.reveal.visible{will-change:auto;}
+/* Contain sections to prevent layout recalculation ripple */
+.section,.achieve-section,.vid-section,.gal-section,.feat-section{
+  contain:layout style;
+}
+/* GPU layer for navbar only when scrolled */
+nav.scrolled{transform:translateZ(0);}
+/* Reduce animation complexity on low-end devices */
+@media(max-width:767px){
+  .hero-bg,.hero-grid,.ptcls{display:none;}
+  .adm-parallax-bg{background-attachment:scroll!important;}
+  .ticker-inner{animation-duration:25s!important;}
+}
+@media(max-width:767px){
+  nav,.dd-inner,.dropdown,.mob-tap-overlay,
+  #soundPrompt,#soundToggle,.vid-live,.vid-label,
+  .play-circle,.modal-overlay,.notice-panel,
+  .hero-tap-inner,.about-tap-inner,.about-yt-frame,
+  .adm-parallax-bg,.feat-card,.vid-card,
+  .achieve-cat,.notice-item,.mob-login-btn-s,.mob-login-btn-t{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+  /* Simplify heavy box-shadows on mobile */
+  .play-circle{box-shadow:0 0 0 8px rgba(30,64,175,.15)!important;}
+  .video-frame{box-shadow:0 8px 32px rgba(0,0,0,.5)!important;}
+}
   .reveal,.lbl,.sec-title::after,.ticker-bar,.mob-ticker,
   .hero-stats .stat,.gal-item,.steps li,.body-text-reveal,footer{
     transition:none !important;
@@ -1755,7 +1785,7 @@ footer.visible{opacity:1;transform:none;}
   <div class="achieve-grid">
     <a href="#" class="achieve-card reveal reveal-up stagger-1">
       <div class="achieve-thumb-wrap">
-        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="Achievement" class="achieve-thumb" loading="lazy"/>
         <span class="achieve-cat">🏆 National Champion</span>
       </div>
       <div class="achieve-body">
@@ -1766,7 +1796,7 @@ footer.visible{opacity:1;transform:none;}
     </a>
     <a href="#" class="achieve-card reveal reveal-up stagger-2">
       <div class="achieve-thumb-wrap">
-        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80" alt="Achievement" class="achieve-thumb" loading="lazy"/>
         <span class="achieve-cat">🎓 Board Excellence</span>
       </div>
       <div class="achieve-body">
@@ -1777,7 +1807,7 @@ footer.visible{opacity:1;transform:none;}
     </a>
     <a href="#" class="achieve-card reveal reveal-up stagger-3">
       <div class="achieve-thumb-wrap">
-        <img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=600&q=80" alt="Achievement" class="achieve-thumb" loading="lazy"/>
         <span class="achieve-cat">⚽ Sports</span>
       </div>
       <div class="achieve-body">
@@ -1788,7 +1818,7 @@ footer.visible{opacity:1;transform:none;}
     </a>
     <a href="#" class="achieve-card reveal reveal-up stagger-4">
       <div class="achieve-thumb-wrap">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Achievement" class="achieve-thumb" loading="lazy"/>
         <span class="achieve-cat">💡 Innovation</span>
       </div>
       <div class="achieve-body">
@@ -1840,22 +1870,22 @@ footer.visible{opacity:1;transform:none;}
   </div>
   <div class="vid-grid">
     <div class="vid-card reveal reveal-up stagger-1" onclick="openModal('dQw4w9WgXcQ')">
-      <img class="vid-thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Campus Tour"/>
+      <img class="vid-thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Campus Tour" loading="lazy"/>
       <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">Campus Tour 2025</div></div>
       <div class="vid-dur">5:32</div>
     </div>
     <div class="vid-card reveal reveal-up stagger-2" onclick="openModal('ysz5S6PUM-U')">
-      <img class="vid-thumb" src="https://img.youtube.com/vi/ysz5S6PUM-U/mqdefault.jpg" alt="Graduation"/>
+      <img class="vid-thumb" src="https://img.youtube.com/vi/ysz5S6PUM-U/mqdefault.jpg" alt="Graduation" loading="lazy"/>
       <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">Graduation Ceremony 2025</div></div>
       <div class="vid-dur">8:14</div>
     </div>
     <div class="vid-card reveal reveal-up stagger-3" onclick="openModal('LXb3EKWsInQ')">
-      <img class="vid-thumb" src="https://img.youtube.com/vi/LXb3EKWsInQ/mqdefault.jpg" alt="Sports Day"/>
+      <img class="vid-thumb" src="https://img.youtube.com/vi/LXb3EKWsInQ/mqdefault.jpg" alt="Sports Day" loading="lazy"/>
       <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">JISC Sports Day 2026</div></div>
       <div class="vid-dur">12:06</div>
     </div>
     <div class="vid-card reveal reveal-up stagger-4" onclick="openModal('M7FIvfx5J10')">
-      <img class="vid-thumb" src="https://img.youtube.com/vi/M7FIvfx5J10/mqdefault.jpg" alt="Science Fair"/>
+      <img class="vid-thumb" src="https://img.youtube.com/vi/M7FIvfx5J10/mqdefault.jpg" alt="Science Fair" loading="lazy"/>
       <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">Science Fair Exhibition</div></div>
       <div class="vid-dur">7:48</div>
     </div>
@@ -1907,7 +1937,7 @@ footer.visible{opacity:1;transform:none;}
       <!-- Notice 1 — NEW (red dot) -->
       <a href="#" class="notice-item new-notice">
         <div class="ni-thumb-wrap">
-          <img src="https://images.unsplash.com/photo-1534170819-a46d0083e053?w=200&q=80" alt="Notice" class="ni-thumb"/>
+          <img src="https://images.unsplash.com/photo-1534170819-a46d0083e053?w=200&q=80" alt="Notice" class="ni-thumb" loading="lazy"/>
           <span class="ni-new-dot"></span>
         </div>
         <div class="ni-body">
@@ -1923,7 +1953,7 @@ footer.visible{opacity:1;transform:none;}
       <!-- Notice 2 -->
       <a href="#" class="notice-item">
         <div class="ni-thumb-wrap">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&q=80" alt="Notice" class="ni-thumb"/>
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&q=80" alt="Notice" class="ni-thumb" loading="lazy"/>
         </div>
         <div class="ni-body">
           <span class="ni-cat">📅 Schedule</span>
@@ -1935,7 +1965,7 @@ footer.visible{opacity:1;transform:none;}
       <!-- Notice 3 -->
       <a href="#" class="notice-item">
         <div class="ni-thumb-wrap">
-          <img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=200&q=80" alt="Notice" class="ni-thumb"/>
+          <img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=200&q=80" alt="Notice" class="ni-thumb" loading="lazy"/>
         </div>
         <div class="ni-body">
           <span class="ni-cat">⚽ Sports</span>
@@ -1947,7 +1977,7 @@ footer.visible{opacity:1;transform:none;}
       <!-- Notice 4 -->
       <a href="#" class="notice-item">
         <div class="ni-thumb-wrap">
-          <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=200&q=80" alt="Notice" class="ni-thumb"/>
+          <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=200&q=80" alt="Notice" class="ni-thumb" loading="lazy"/>
         </div>
         <div class="ni-body">
           <span class="ni-cat">🏆 Results</span>
@@ -1959,7 +1989,7 @@ footer.visible{opacity:1;transform:none;}
       <!-- Notice 5 -->
       <a href="#" class="notice-item">
         <div class="ni-thumb-wrap">
-          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&q=80" alt="Notice" class="ni-thumb"/>
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&q=80" alt="Notice" class="ni-thumb" loading="lazy"/>
         </div>
         <div class="ni-body">
           <span class="ni-cat">📋 Selection</span>
@@ -2016,9 +2046,16 @@ footer.visible{opacity:1;transform:none;}
 // so onclick="" attributes can find them right away
 
 /* ══ NAVBAR SCROLL — blue glass effect ══ */
+var _ticking = false;
 window.addEventListener('scroll', function() {
-  var nav = document.getElementById('navbar');
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
+  if (!_ticking) {
+    requestAnimationFrame(function() {
+      var nav = document.getElementById('navbar');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
+      _ticking = false;
+    });
+    _ticking = true;
+  }
 }, {passive: true});
 
 /* ══ HAMBURGER ══ */
@@ -2340,66 +2377,57 @@ document.addEventListener('DOMContentLoaded', function() {
   var statsEl = document.querySelector('.hero-stats');
   if (statsEl) statsObs.observe(statsEl);
 
-  /* Particles */
-  var ptcls = document.getElementById('ptcls');
-  if (ptcls) {
-    var cols = ['rgba(59,130,246,','rgba(30,64,175,','rgba(96,165,250,'];
-    for (var i = 0; i < 22; i++) {
-      var d = document.createElement('div');
-      d.className = 'ptcl';
-      var sz = Math.random() * 3 + 1.5;
-      d.style.cssText = 'width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;background:'+cols[Math.floor(Math.random()*3)]+(0.3+Math.random()*0.5)+');animation-duration:'+(9+Math.random()*14)+'s;animation-delay:'+(Math.random()*12)+'s;';
-      ptcls.appendChild(d);
+  /* Particles — delayed so they don't block initial render */
+  setTimeout(function() {
+    var ptcls = document.getElementById('ptcls');
+    if (ptcls) {
+      var cols = ['rgba(59,130,246,','rgba(30,64,175,','rgba(96,165,250,'];
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 10; i++) {
+        var d = document.createElement('div');
+        d.className = 'ptcl';
+        var sz = Math.random() * 2.5 + 1;
+        d.style.cssText = 'width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;background:'+cols[Math.floor(Math.random()*3)]+(0.25+Math.random()*0.4)+');animation-duration:'+(12+Math.random()*16)+'s;animation-delay:'+(Math.random()*14)+'s;';
+        frag.appendChild(d);
+      }
+      ptcls.appendChild(frag);
     }
-  }
+  }, 2000);
 
-  /* ══ SCROLL REVEAL — COMPREHENSIVE ══ */
-  (function() {
+  /* ══ SCROLL REVEAL — deferred until after first paint ══ */
+  var _initReveal = function() {
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Don't disconnect — allow re-trigger if needed for sections
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    // Core reveal elements
     var selectors = [
-      '.reveal',
-      '.lbl',
-      '.sec-title',
-      '.ticker-bar',
-      '.mob-ticker',
-      '.section',
-      '.feat-section',
-      '.gal-section',
-      '.achieve-section',
-      '.vid-section',
-      '.adm-section',
-      '.hero-stats',
-      '.gal-grid',
-      '.adm-card',
-      'footer'
+      '.reveal','.lbl','.sec-title','.ticker-bar','.mob-ticker',
+      '.section','.feat-section','.gal-section','.achieve-section',
+      '.vid-section','.adm-section','.hero-stats','.gal-grid',
+      '.adm-card','footer'
     ];
-
     selectors.forEach(function(sel) {
-      document.querySelectorAll(sel).forEach(function(el) {
-        obs.observe(el);
-      });
+      document.querySelectorAll(sel).forEach(function(el) { obs.observe(el); });
     });
 
-    // Separate observer for body-text elements with slightly lower threshold
     var textObs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
     document.querySelectorAll('.body-text-reveal').forEach(function(el) {
       textObs.observe(el);
     });
-  })();
+  };
+
+  /* Use requestIdleCallback if available, else delay 800ms */
+  if (window.requestIdleCallback) {
+    requestIdleCallback(_initReveal, { timeout: 1000 });
+  } else {
+    setTimeout(_initReveal, 800);
+  }
 
 }); // end DOMContentLoaded
 </script>
