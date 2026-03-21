@@ -23,6 +23,20 @@
 <style>
 /* ══════════════════ RESET ══════════════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+/* Disable text selection sitewide */
+*{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+/* Re-enable selection only for input fields */
+input,textarea,select{
+  -webkit-user-select:text;
+  -moz-user-select:text;
+  -ms-user-select:text;
+  user-select:text;
+}
 /* Prevent horizontal overflow at all times */
 html{overflow-x:hidden;max-width:100%;scroll-behavior:smooth;}
 body{overflow-x:hidden;max-width:100%;font-family:'Outfit',sans-serif;background:var(--n1);color:#fff;}
@@ -68,25 +82,18 @@ nav.scrolled{
 }
 .logo:hover .logo-ring img{filter:drop-shadow(0 0 12px rgba(59,130,246,.6));}
 .logo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.15;}
-.logo-sub{font-size:8.5px;font-weight:300;color:var(--a4);letter-spacing:2.5px;text-transform:uppercase;}
+.logo-sub{font-family:'Outfit',sans-serif;font-size:8.5px;font-weight:300;color:var(--a4);letter-spacing:2.5px;text-transform:uppercase;}
 
-/* ══ GARDEZI DEMI FONT ══ */
-@font-face{
-  font-family:'Gardezi';
-  src:url('fonts/Gardezi-Demi.woff2') format('woff2'),
-      url('fonts/Gardezi-Demi.woff') format('woff'),
-      url('fonts/Gardezi-Demi.ttf') format('truetype');
-  font-weight:400;font-style:normal;font-display:swap;
-}
 
 /* Mobile-only centered nav title — hidden on desktop */
 .mob-nav-center{display:none;}
 .mob-nav-title{
-  font-family:'Playfair Display',serif;
-  font-size:20px;font-weight:900;color:#fff;
+  font-size:20px;color:#fff;font-family:'Playfair Display',serif;font-weight:900;
   text-align:center;line-height:1.2;
   letter-spacing:1px;text-transform:uppercase;
 }
+
+
 
 .nav-links{list-style:none;display:flex;align-items:center;gap:1px;}
 .nav-links>li{position:relative;}
@@ -213,18 +220,22 @@ li:has(.nav-login-btn) .dropdown a{
   background:transparent !important;
 }
 .adm-parallax-bg{
-  position:absolute;inset:-60px;z-index:0;
-  background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&q=80');
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  z-index:0;
+  background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=90');
   background-size:cover;
-  background-position:center;
+  background-position:center center;
   background-attachment:fixed;
-  filter:brightness(.2) saturate(.6);
-  transform:scale(1.05);
+  background-repeat:no-repeat;
+  filter:brightness(.45) saturate(.8);
+  transform:none;
+  width:100%;
 }
 .adm-overlay{
   position:absolute;inset:0;z-index:1;
   background:
-    linear-gradient(135deg,rgba(8,20,64,.88) 0%,rgba(5,13,30,.75) 50%,rgba(8,20,64,.85) 100%);
+    linear-gradient(135deg,rgba(8,20,64,.72) 0%,rgba(5,13,30,.55) 50%,rgba(8,20,64,.70) 100%);
 }
 .adm-section .sec-inner{
   position:relative;z-index:2;
@@ -1423,6 +1434,39 @@ nav.scrolled{transform:translateZ(0);}
   .mob-link{padding:12px 14px;font-size:14px;}
   .mob-sub a{padding:9px 16px;font-size:13px;}
 }
+
+
+
+
+
+
+
+
+@font-face {
+  font-family: 'GardenziBold';
+  src: url('fonts/gardenzi_bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'GardenziThin';
+  src: url('fonts/gardenzi_thin.ttf') format('truetype');
+  font-weight: normal;
+}
+
+
+.logo-name {
+  font-family: 'GardenziBold', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.logo-sub {
+  font-family: 'GardenziThin', sans-serif;
+  font-size: 12px;
+}
+
+
 </style>
 </head>
 <body>
@@ -1441,7 +1485,7 @@ nav.scrolled{transform:translateZ(0);}
 
   <!-- Mobile-only centered title (absolutely positioned in nav center) -->
   <div class="mob-nav-center">
-    <div class="mob-nav-title">JIS COLLEGE</div>
+    <div class="mob-nav-title logo-name">JIS COLLEGE</div>
   </div>
 
   <ul class="nav-links">
@@ -1466,13 +1510,7 @@ nav.scrolled{transform:translateZ(0);}
         <a href="#">📖 Curriculum</a>
       </div></div>
     </li>
-    <li>
-      <a href="#"><span class="ni">✏️</span> Admission <span class="arr">▾</span></a>
-      <div class="dropdown"><div class="dd-inner">
-        <a href="#">ℹ️ Admission Level & Procedure</a>
-        <a href="#">🌐 Online Admission</a>
-      </div></div>
-    </li>
+
     <li>
       <a href="#"><span class="ni">📞</span> Contact <span class="arr">▾</span></a>
       <div class="dropdown"><div class="dd-inner">
@@ -1518,7 +1556,7 @@ nav.scrolled{transform:translateZ(0);}
         </a>
       </div></div>
     </li>
-    <li><a href="#" class="nav-apply"><span class="ni">🎓</span> Apply Now</a></li>
+    <li><a href="#" class="nav-apply"><span class="ni">🎓</span> Online Admission</a></li>
   </ul>
 </nav>
 
@@ -1535,7 +1573,7 @@ nav.scrolled{transform:translateZ(0);}
       <img width="52px" height="52px" src="img/logo/jiscollege.png" alt="JIS College Logo">
     </div>
     <div class="mob-logo-text">
-      <div class="mob-logo-sub">JIS COLLEGE</div>
+      <div class="mob-logo-sub logo-name">JIS COLLEGE</div>
     </div>
   </div>
   <div class="mob-item">
@@ -1566,15 +1604,7 @@ nav.scrolled{transform:translateZ(0);}
       <a href="#" onclick="closeMob()">📖 Curriculum</a>
     </div>
   </div>
-  <div class="mob-item">
-    <button class="mob-link" onclick="toggleSub(this)">
-      <div class="mob-ll"><span class="mni">✏️</span> Admission</div><span class="mob-arr">›</span>
-    </button>
-    <div class="mob-sub">
-      <a href="#" onclick="closeMob()">ℹ️ Admission Level & Procedure</a>
-      <a href="#" onclick="closeMob()">🌐 Online Admission</a>
-    </div>
-  </div>
+
   <div class="mob-item">
     <button class="mob-link" onclick="toggleSub(this)">
       <div class="mob-ll"><span class="mni">📞</span> Contact</div><span class="mob-arr">›</span>
@@ -1629,7 +1659,7 @@ nav.scrolled{transform:translateZ(0);}
   </div>
   <div class="mob-item">
     <a href="#" class="mob-cta-btn" onclick="closeMob()">
-      <span class="mni">🎓</span> Online Admission — Apply Free
+      <span class="mni">🎓</span> Online Admission
     </a>
   </div>
 </div>
@@ -1648,7 +1678,7 @@ nav.scrolled{transform:translateZ(0);}
         <div class="ldot"></div>
         <span>South Bangladesh's No.1 English Version Institution · Est. 2010</span>
       </div>
-      <h1 class="hero-title">Welcome to<br><span class="grad-text">JIS COLLEGE</span></h1>
+      <h1 class="hero-title">Welcome to<br><span class="grad-text ">JIS COLLEGE</span></h1>
       <div class="typing-row">
         <span style="margin-right:8px;">We shape&nbsp;</span>
         <span id="typedText"></span><span class="cur"></span>
@@ -1657,7 +1687,7 @@ nav.scrolled{transform:translateZ(0);}
       <div class="hero-btns">
         <a href="#" class="btn-p">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Apply Online — Free
+          Online Admission
         </a>
         <a href="#" class="btn-s" onclick="openNoticePanel(event)">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
@@ -1690,7 +1720,7 @@ nav.scrolled{transform:translateZ(0);}
             <div class="hero-big-play">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
             </div>
-            <p class="hero-tap-label">▶ Tap to Play with Sound</p>
+            <p class="hero-tap-label">Tap to Play with Sound</p>
           </div>
         </div>
         <div class="vid-glow"></div>
@@ -1767,7 +1797,7 @@ nav.scrolled{transform:translateZ(0);}
             <div class="about-big-play">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
             </div>
-            <p class="about-tap-label">▶ Tap to Play</p>
+            <p class="about-tap-label">Tap to Play</p>
           </div>
         </div>
       </div>
@@ -2449,6 +2479,500 @@ document.addEventListener('DOMContentLoaded', function() {
 }); // end DOMContentLoaded
 </script>
 
+<!-- ══ FLOATING CHAT BUTTON ══ -->
+<button class="float-chat-btn" id="floatChatBtn" onclick="window.toggleChatForm()" title="Send us a message">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+  </svg>
+  <span class="float-chat-label">Message Us</span>
+  <span class="float-chat-dot"></span>
+</button>
+
+<!-- ══ CHAT FORM POPUP ══ -->
+<div class="chat-popup" id="chatPopup">
+
+  <!-- Header -->
+  <div class="chat-popup-header">
+    <div class="chat-popup-title">
+      <div class="chat-popup-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div>
+        <div class="chat-popup-name">JIS COLLEGE</div>
+        <div class="chat-popup-status"><span class="chat-online-dot"></span> We reply within a few hours</div>
+      </div>
+    </div>
+    <button class="chat-popup-close" onclick="window.toggleChatForm()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- Tabs — scrollable on mobile -->
+  <div class="chat-tabs">
+    <button class="chat-tab active" id="tabContact" onclick="window.switchTab('contact')">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Contact
+    </button>
+    <button class="chat-tab" id="tabChairman" onclick="window.switchTab('chairman')">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Chairman
+    </button>
+    <button class="chat-tab" id="tabPrincipal" onclick="window.switchTab('principal')">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Principal
+    </button>
+    <button class="chat-tab" id="tabAppt" onclick="window.switchTab('appt')">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Appointment
+    </button>
+  </div>
+
+  <!-- TAB 1: Contact Us -->
+  <div class="chat-tab-body" id="panelContact">
+    <div class="chat-field-group">
+      <label class="chat-label">Your Name <span>*</span></label>
+      <input class="chat-input" id="chatName" type="text" placeholder="Enter your full name">
+    </div>
+    <div class="chat-field-row">
+      <div class="chat-field-group">
+        <label class="chat-label">Grade <span>*</span></label>
+        <select class="chat-input chat-select" id="chatGrade">
+          <option value="" disabled selected>Select grade</option>
+          <option>Playgroup</option><option>Nursery</option><option>KG</option>
+          <option>Grade I</option><option>Grade II</option><option>Grade III</option>
+          <option>Grade IV</option><option>Grade V</option><option>Grade VI</option>
+          <option>Grade VII</option><option>Grade VIII</option><option>Grade IX</option>
+          <option>Grade X (SSC)</option><option>HSC 1st Year</option><option>HSC 2nd Year</option>
+        </select>
+      </div>
+      <div class="chat-field-group">
+        <label class="chat-label">Subject</label>
+        <input class="chat-input" id="chatSubject" type="text" placeholder="e.g. Admission">
+      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Message <span>*</span></label>
+      <textarea class="chat-input chat-textarea" id="chatMsg" placeholder="Write your message..."></textarea>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Attachment <span class="chat-optional">(optional)</span></label>
+      <label class="chat-file-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg><span id="chatFileName">Choose file…</span><input type="file" id="chatFile" accept="image/*,.pdf,.doc,.docx" style="display:none" onchange="window.chatFileChange(this,'chatFileName')"></label>
+    </div>
+    <div class="chat-actions" id="contactActions">
+      <button class="chat-btn-clear" onclick="window.clearForm('contact')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Clear</button>
+      <button class="chat-btn-submit" onclick="window.submitForm('contact')">Send Message <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+    </div>
+    <div class="chat-success" id="contactSuccess"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><p>Message sent!<br><span>We'll get back to you soon.</span></p></div>
+  </div>
+
+  <!-- TAB 2: Message to Chairman -->
+  <div class="chat-tab-body" id="panelChairman" style="display:none;">
+    <div class="chat-info-banner">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Message will be sent directly to the Chairman
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Your Name <span>*</span></label>
+      <input class="chat-input" id="chrName" type="text" placeholder="Enter your full name">
+    </div>
+    <div class="chat-field-row">
+      <div class="chat-field-group">
+        <label class="chat-label">Grade <span>*</span></label>
+        <select class="chat-input chat-select" id="chrGrade">
+          <option value="" disabled selected>Select grade</option>
+          <option>Playgroup</option><option>Nursery</option><option>KG</option>
+          <option>Grade I</option><option>Grade II</option><option>Grade III</option>
+          <option>Grade IV</option><option>Grade V</option><option>Grade VI</option>
+          <option>Grade VII</option><option>Grade VIII</option><option>Grade IX</option>
+          <option>Grade X (SSC)</option><option>HSC 1st Year</option><option>HSC 2nd Year</option>
+          <option>Parent / Guardian</option>
+        </select>
+      </div>
+      <div class="chat-field-group">
+        <label class="chat-label">Subject <span>*</span></label>
+        <input class="chat-input" id="chrSubject" type="text" placeholder="Subject">
+      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Message <span>*</span></label>
+      <textarea class="chat-input chat-textarea" id="chrMsg" placeholder="Write your message to the Chairman..."></textarea>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Attachment <span class="chat-optional">(optional)</span></label>
+      <label class="chat-file-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg><span id="chrFileName">Choose file…</span><input type="file" id="chrFile" accept="image/*,.pdf,.doc,.docx" style="display:none" onchange="window.chatFileChange(this,'chrFileName')"></label>
+    </div>
+    <div class="chat-actions" id="chairmanActions">
+      <button class="chat-btn-clear" onclick="window.clearForm('chairman')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Clear</button>
+      <button class="chat-btn-submit" onclick="window.submitForm('chairman')">Send to Chairman <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+    </div>
+    <div class="chat-success" id="chairmanSuccess"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><p>Sent to Chairman!<br><span>You'll receive a response soon.</span></p></div>
+  </div>
+
+  <!-- TAB 3: Message to Principal -->
+  <div class="chat-tab-body" id="panelPrincipal" style="display:none;">
+    <div class="chat-info-banner">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Message will be sent directly to the Principal
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Your Name <span>*</span></label>
+      <input class="chat-input" id="prnName" type="text" placeholder="Enter your full name">
+    </div>
+    <div class="chat-field-row">
+      <div class="chat-field-group">
+        <label class="chat-label">Grade <span>*</span></label>
+        <select class="chat-input chat-select" id="prnGrade">
+          <option value="" disabled selected>Select grade</option>
+          <option>Playgroup</option><option>Nursery</option><option>KG</option>
+          <option>Grade I</option><option>Grade II</option><option>Grade III</option>
+          <option>Grade IV</option><option>Grade V</option><option>Grade VI</option>
+          <option>Grade VII</option><option>Grade VIII</option><option>Grade IX</option>
+          <option>Grade X (SSC)</option><option>HSC 1st Year</option><option>HSC 2nd Year</option>
+          <option>Parent / Guardian</option>
+        </select>
+      </div>
+      <div class="chat-field-group">
+        <label class="chat-label">Subject <span>*</span></label>
+        <input class="chat-input" id="prnSubject" type="text" placeholder="Subject">
+      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Message <span>*</span></label>
+      <textarea class="chat-input chat-textarea" id="prnMsg" placeholder="Write your message to the Principal..."></textarea>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Attachment <span class="chat-optional">(optional)</span></label>
+      <label class="chat-file-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg><span id="prnFileName">Choose file…</span><input type="file" id="prnFile" accept="image/*,.pdf,.doc,.docx" style="display:none" onchange="window.chatFileChange(this,'prnFileName')"></label>
+    </div>
+    <div class="chat-actions" id="principalActions">
+      <button class="chat-btn-clear" onclick="window.clearForm('principal')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Clear</button>
+      <button class="chat-btn-submit" onclick="window.submitForm('principal')">Send to Principal <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+    </div>
+    <div class="chat-success" id="principalSuccess"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><p>Sent to Principal!<br><span>You'll receive a response soon.</span></p></div>
+  </div>
+
+  <!-- TAB 4: Get Appointment -->
+  <div class="chat-tab-body" id="panelAppt" style="display:none;">
+    <div class="chat-info-banner" style="border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06);color:rgba(251,191,36,.85);">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book an appointment with the administration
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Your Name <span>*</span></label>
+      <input class="chat-input" id="apptName" type="text" placeholder="Enter your full name">
+    </div>
+    <div class="chat-field-row">
+      <div class="chat-field-group">
+        <label class="chat-label">Phone <span>*</span></label>
+        <input class="chat-input" id="apptPhone" type="tel" placeholder="01XXXXXXXXX">
+      </div>
+      <div class="chat-field-group">
+        <label class="chat-label">Meet With <span>*</span></label>
+        <select class="chat-input chat-select" id="apptWith">
+          <option value="" disabled selected>Select person</option>
+          <option>Chairman</option><option>Principal</option>
+          <option>Vice Principal</option><option>Chief Admin Officer</option><option>Accounts</option>
+        </select>
+      </div>
+    </div>
+    <div class="chat-field-row">
+      <div class="chat-field-group">
+        <label class="chat-label">Preferred Date <span>*</span></label>
+        <input class="chat-input" id="apptDate" type="date">
+      </div>
+      <div class="chat-field-group">
+        <label class="chat-label">Time Slot</label>
+        <select class="chat-input chat-select" id="apptTime">
+          <option value="" disabled selected>Select time</option>
+          <option>9:00 – 10:00 AM</option><option>10:00 – 11:00 AM</option>
+          <option>11:00 AM – 12:00 PM</option><option>2:00 – 3:00 PM</option><option>3:00 – 4:00 PM</option>
+        </select>
+      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Purpose <span class="chat-optional">(optional)</span></label>
+      <textarea class="chat-input chat-textarea" id="apptNote" style="min-height:56px;" placeholder="Brief reason for the appointment..."></textarea>
+    </div>
+    <div class="chat-actions" id="apptActions">
+      <button class="chat-btn-clear" onclick="window.clearForm('appt')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Clear</button>
+      <button class="chat-btn-submit" onclick="window.submitForm('appt')" style="background:linear-gradient(135deg,#92400e,#d97706);">Book Appointment <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></button>
+    </div>
+    <div class="chat-success" id="apptSuccess"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><p>Appointment requested!<br><span>We'll confirm your slot shortly.</span></p></div>
+  </div>
+
+
+</div>
+<div class="chat-backdrop" id="chatBackdrop" onclick="window.toggleChatForm()"></div>
+
+<style>
+/* ══ FLOATING CHAT BUTTON ══ */
+.float-chat-btn{
+  position:fixed;bottom:28px;right:28px;z-index:8000;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#fff;border:none;cursor:pointer;
+  padding:14px 20px;border-radius:50px;
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;
+  box-shadow:0 8px 32px rgba(37,99,235,.5);
+  transition:transform .25s,box-shadow .25s;
+  animation:chatPulse 2.5s ease-in-out infinite;
+  -webkit-user-select:none;user-select:none;
+}
+.float-chat-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(37,99,235,.6);animation:none;}
+.float-chat-dot{
+  position:absolute;top:6px;right:6px;width:10px;height:10px;
+  border-radius:50%;background:#4ade80;border:2px solid #fff;
+  animation:ldotp 1.4s ease-in-out infinite;
+}
+@keyframes chatPulse{
+  0%,100%{box-shadow:0 8px 32px rgba(37,99,235,.5),0 0 0 0 rgba(37,99,235,.4);}
+  50%{box-shadow:0 8px 32px rgba(37,99,235,.5),0 0 0 10px rgba(37,99,235,.0);}
+}
+@media(max-width:479px){
+  .float-chat-btn{bottom:20px;right:16px;padding:13px 16px;}
+  .float-chat-label{display:none;}
+}
+
+/* ══ CHAT POPUP ══ */
+.chat-backdrop{display:none;position:fixed;inset:0;z-index:8001;}
+.chat-popup{
+  position:fixed;bottom:90px;right:28px;z-index:8002;
+  width:400px;max-width:calc(100vw - 24px);
+  background:rgba(5,13,30,.98);
+  border:1px solid var(--bd);border-radius:20px;
+  box-shadow:0 32px 80px rgba(0,0,0,.7),0 0 0 1px rgba(59,130,246,.1);
+  transform:scale(.92) translateY(20px);opacity:0;pointer-events:none;
+  transition:opacity .3s,transform .3s cubic-bezier(.22,1,.36,1);
+  overflow:hidden;
+}
+.chat-popup.open{opacity:1;transform:scale(1) translateY(0);pointer-events:all;}
+@media(max-width:479px){.chat-popup{bottom:76px;right:16px;width:calc(100vw - 32px);}}
+
+/* Header */
+.chat-popup-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;
+  background:linear-gradient(135deg,rgba(30,64,175,.4),rgba(8,20,64,.6));
+  border-bottom:1px solid var(--bd2);
+}
+.chat-popup-title{display:flex;align-items:center;gap:11px;}
+.chat-popup-icon{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  display:flex;align-items:center;justify-content:center;
+}
+.chat-popup-name{font-size:15px;font-weight:700;color:#fff;}
+.chat-popup-status{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;}
+.chat-online-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:ldotp 1.4s ease-in-out infinite;flex-shrink:0;}
+.chat-popup-close{
+  width:30px;height:30px;border-radius:8px;border:none;cursor:pointer;
+  background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,color .2s;flex-shrink:0;
+}
+.chat-popup-close:hover{background:rgba(255,255,255,.14);color:#fff;}
+
+/* Tabs */
+.chat-tabs{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--bd2);gap:0;
+}
+.chat-tab{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  padding:9px 4px;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:500;
+  color:rgba(255,255,255,.38);background:transparent;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;
+  transition:color .25s,border-color .25s,background .25s;line-height:1;
+}
+.chat-tab svg{flex-shrink:0;}
+.chat-tab:hover{color:rgba(255,255,255,.75);background:rgba(255,255,255,.04);}
+.chat-tab.active{color:#fff;border-bottom-color:var(--a3);background:rgba(37,99,235,.06);}
+
+/* Info banner */
+.chat-info-banner{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 12px;border-radius:8px;font-size:11.5px;
+  background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);
+  color:rgba(255,255,255,.55);
+}
+
+/* Tab body */
+.chat-tab-body{
+  padding:14px;display:flex;flex-direction:column;gap:10px;
+  max-height:65vh;overflow-y:auto;
+}
+.chat-tab-body::-webkit-scrollbar{width:3px;}
+.chat-tab-body::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px;}
+
+/* Form elements */
+.chat-field-group{display:flex;flex-direction:column;gap:5px;}
+.chat-field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.chat-label{font-size:11px;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.3px;}
+.chat-label span{color:var(--a3);}
+.chat-optional{color:rgba(255,255,255,.28);font-weight:400;}
+.chat-input{
+  width:100%;background:rgba(255,255,255,.05);
+  border:1px solid rgba(59,130,246,.2);border-radius:8px;
+  padding:8px 12px;font-family:'Outfit',sans-serif;
+  font-size:13px;color:#fff;outline:none;
+  transition:border-color .25s,background .25s;
+  -webkit-user-select:text;user-select:text;
+}
+.chat-input::placeholder{color:rgba(255,255,255,.22);}
+.chat-input:focus{border-color:rgba(59,130,246,.5);background:rgba(59,130,246,.06);}
+.chat-select{cursor:pointer;}
+.chat-select option{background:#081428;color:#fff;}
+.chat-textarea{resize:vertical;min-height:72px;max-height:130px;line-height:1.6;}
+.chat-file-label{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.04);border:1px dashed rgba(59,130,246,.25);
+  border-radius:8px;padding:8px 12px;cursor:pointer;
+  font-size:12px;color:rgba(255,255,255,.4);transition:border-color .25s,background .25s;
+}
+.chat-file-label:hover{border-color:rgba(59,130,246,.5);color:var(--a4);background:rgba(59,130,246,.06);}
+.chat-actions{display:flex;gap:10px;margin-top:2px;}
+.chat-btn-clear{
+  display:flex;align-items:center;gap:6px;
+  padding:9px 14px;border-radius:8px;border:1px solid var(--bd2);
+  background:transparent;color:rgba(255,255,255,.45);
+  font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:500;cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s;flex-shrink:0;
+}
+.chat-btn-clear:hover{background:rgba(255,255,255,.06);color:#fff;border-color:var(--bd);}
+.chat-btn-submit{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:10px 16px;border-radius:8px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;
+  transition:transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(37,99,235,.4);
+}
+.chat-btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.5);}
+.chat-success{
+  display:none;flex-direction:column;align-items:center;
+  text-align:center;padding:16px 10px 6px;gap:10px;
+}
+.chat-success p{font-size:14px;font-weight:500;color:#fff;line-height:1.6;}
+.chat-success p span{font-size:12px;color:rgba(255,255,255,.45);}
+.chat-success.show{display:flex;}
+</style>
+
+<script>
+/* ══ CHAT FORM JS ══ */
+window.toggleChatForm = function() {
+  var popup = document.getElementById('chatPopup');
+  var backdrop = document.getElementById('chatBackdrop');
+  var isOpen = popup.classList.contains('open');
+  if (isOpen) {
+    popup.classList.remove('open');
+    backdrop.style.display = 'none';
+  } else {
+    popup.classList.add('open');
+    backdrop.style.display = 'block';
+    document.getElementById('contactSuccess').classList.remove('show');
+    document.getElementById('chairmanSuccess').classList.remove('show');
+    document.getElementById('principalSuccess').classList.remove('show');
+    document.getElementById('apptSuccess').classList.remove('show');
+  }
+};
+
+window.switchTab = function(tab) {
+  var panels = {contact:'panelContact',chairman:'panelChairman',principal:'panelPrincipal',appt:'panelAppt'};
+  var tabs = {contact:'tabContact',chairman:'tabChairman',principal:'tabPrincipal',appt:'tabAppt'};
+  Object.keys(panels).forEach(function(k) {
+    document.getElementById(panels[k]).style.display = k === tab ? 'flex' : 'none';
+    document.getElementById(tabs[k]).classList.toggle('active', k === tab);
+  });
+};
+
+window.chatFileChange = function(input, labelId) {
+  var label = document.getElementById(labelId);
+  if (label) label.textContent = (input.files && input.files[0]) ? input.files[0].name : 'Choose file\u2026';
+};
+
+function _shake(id) {
+  var el = document.getElementById(id); if(!el) return;
+  el.style.borderColor='rgba(239,68,68,.7)'; el.style.background='rgba(239,68,68,.06)';
+  setTimeout(function(){ el.style.borderColor=''; el.style.background=''; },1800);
+}
+function _success(successId, actionsId, clearKey) {
+  document.getElementById(actionsId).style.display='none';
+  document.getElementById(successId).classList.add('show');
+  setTimeout(function(){
+    window.clearForm(clearKey);
+    document.getElementById(actionsId).style.display='flex';
+    window.toggleChatForm();
+  },2800);
+}
+
+window.clearForm = function(tab) {
+  if(tab==='contact'){
+    ['chatName','chatSubject','chatMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+    var g=document.getElementById('chatGrade');if(g)g.selectedIndex=0;
+    var f=document.getElementById('chatFile');if(f)f.value='';
+    var fn=document.getElementById('chatFileName');if(fn)fn.textContent='Choose file\u2026';
+    document.getElementById('contactSuccess').classList.remove('show');
+  } else if(tab==='chairman'){
+    ['chrName','chrSubject','chrMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+    var g=document.getElementById('chrGrade');if(g)g.selectedIndex=0;
+    var f=document.getElementById('chrFile');if(f)f.value='';
+    var fn=document.getElementById('chrFileName');if(fn)fn.textContent='Choose file\u2026';
+    document.getElementById('chairmanSuccess').classList.remove('show');
+  } else if(tab==='principal'){
+    ['prnName','prnSubject','prnMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+    var g=document.getElementById('prnGrade');if(g)g.selectedIndex=0;
+    var f=document.getElementById('prnFile');if(f)f.value='';
+    var fn=document.getElementById('prnFileName');if(fn)fn.textContent='Choose file\u2026';
+    document.getElementById('principalSuccess').classList.remove('show');
+    document.getElementById('apptSuccess').classList.remove('show');
+  }
+};
+
+window.submitForm = function(tab) {
+  if(tab==='contact'){
+    var n=document.getElementById('chatName').value.trim();
+    var g=document.getElementById('chatGrade').value;
+    var m=document.getElementById('chatMsg').value.trim();
+    var ok=true;
+    if(!n){_shake('chatName');ok=false;}
+    if(!g){_shake('chatGrade');ok=false;}
+    if(!m){_shake('chatMsg');ok=false;}
+    if(ok) _success('contactSuccess','contactActions','contact');
+  } else if(tab==='chairman'){
+    var n=document.getElementById('chrName').value.trim();
+    var g=document.getElementById('chrGrade').value;
+    var s=document.getElementById('chrSubject').value.trim();
+    var m=document.getElementById('chrMsg').value.trim();
+    var ok=true;
+    if(!n){_shake('chrName');ok=false;}
+    if(!g){_shake('chrGrade');ok=false;}
+    if(!s){_shake('chrSubject');ok=false;}
+    if(!m){_shake('chrMsg');ok=false;}
+    if(ok) _success('chairmanSuccess','chairmanActions','chairman');
+  } else if(tab==='principal'){
+    var n=document.getElementById('prnName').value.trim();
+    var g=document.getElementById('prnGrade').value;
+    var s=document.getElementById('prnSubject').value.trim();
+    var m=document.getElementById('prnMsg').value.trim();
+    var ok=true;
+    if(!n){_shake('prnName');ok=false;}
+    if(!g){_shake('prnGrade');ok=false;}
+    if(!s){_shake('prnSubject');ok=false;}
+    if(!m){_shake('prnMsg');ok=false;}
+    if(ok) _success('principalSuccess','principalActions','principal');
+  } else if(tab==='appt'){
+    var n=document.getElementById('apptName').value.trim();
+    var p=document.getElementById('apptPhone').value.trim();
+    var w=document.getElementById('apptWith').value;
+    var d=document.getElementById('apptDate').value;
+    var ok=true;
+    if(!n){_shake('apptName');ok=false;}
+    if(!p){_shake('apptPhone');ok=false;}
+    if(!w){_shake('apptWith');ok=false;}
+    if(!d){_shake('apptDate');ok=false;}
+    if(ok) _success('apptSuccess','apptActions','appt');
+  }
+};
+</script>
 
 </body>
 </html>
