@@ -1147,8 +1147,10 @@ nav.scrolled{transform:translateZ(0);}
 /* Reduce animation complexity on low-end devices */
 @media(max-width:767px){
   .hero-bg,.hero-grid,.ptcls{display:none;}
-  .adm-parallax-bg{background-attachment:scroll!important;}
-  .ticker-inner{animation-duration:25s!important;}
+  .adm-parallax-bg{display:none!important;}
+  .adm-section{background:var(--n2)!important;}
+  .ticker-inner{animation-duration:12s!important;}
+  .mob-ticker-inner{animation-duration:10s!important;}
 }
 @media(max-width:767px){
   nav,.dd-inner,.dropdown,.mob-tap-overlay,
