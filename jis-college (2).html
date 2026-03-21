@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; img-src * data: blob:; media-src *; connect-src *;">
+<title>JIS College — Jahanara Israil School & College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════ RESET ══════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --n0:#010611; --n1:#050d1e; --n2:#081428; --n3:#0c1c38;
+  --a1:#1e40af; --a2:#2563eb; --a3:#3b82f6; --a4:#60a5fa; --a5:#93c5fd;
+  --bd:rgba(37,99,235,.3); --bd2:rgba(37,99,235,.15);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--n1);color:#fff;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--n0);}
+::-webkit-scrollbar-thumb{background:var(--a2);border-radius:3px;}
+
+/* ══════════════════ NAVBAR ══════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4%;height:72px;
+  background:transparent;
+  transition:background .4s,box-shadow .4s;
+}
+nav.scrolled{
+  background:rgba(10,24,64,0.92);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  box-shadow:0 1px 0 var(--bd),0 4px 32px rgba(14,36,120,.5),0 0 40px rgba(30,64,175,.15);
+  border-bottom:1px solid rgba(59,130,246,.18);
+}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;}
+.logo-ring{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  /* border, border-radius, background, box-shadow all removed */
+}
+.logo-ring img{
+  width:52px;height:52px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 6px rgba(59,130,246,.35));
+  transition:filter .3s;
+}
+.logo:hover .logo-ring img{filter:drop-shadow(0 0 12px rgba(59,130,246,.6));}
+.logo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.15;}
+.logo-sub{font-size:8.5px;font-weight:300;color:var(--a4);letter-spacing:2.5px;text-transform:uppercase;}
+
+/* ══ GARDEZI DEMI FONT ══ */
+@font-face{
+  font-family:'Gardezi';
+  src:url('fonts/Gardezi-Demi.woff2') format('woff2'),
+      url('fonts/Gardezi-Demi.woff') format('woff'),
+      url('fonts/Gardezi-Demi.ttf') format('truetype');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+
+/* Mobile-only centered nav title — hidden on desktop */
+.mob-nav-center{display:none;}
+.mob-nav-title{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:900;color:#fff;
+  text-align:center;line-height:1.2;
+  letter-spacing:1px;text-transform:uppercase;
+}
+
+.nav-links{list-style:none;display:flex;align-items:center;gap:1px;}
+.nav-links>li{position:relative;}
+.nav-links>li>a{
+  position:relative;display:flex;align-items:center;gap:4px;
+  text-decoration:none;color:rgba(255,255,255,.88);
+  font-size:14.5px;font-weight:500;padding:6px 9px;border-radius:7px;
+  transition:color .25s,background .25s;white-space:nowrap;
+}
+.nav-links>li>a:hover{color:#fff;background:rgba(59,130,246,.12);}
+/* hover bridge so mouse can reach dropdown */
+.nav-links>li>a::after{content:'';position:absolute;bottom:-16px;left:0;right:0;height:16px;}
+.ni{font-size:14px;line-height:1;}
+.arr{font-size:9px;color:var(--a4);transition:transform .3s;margin-left:1px;}
+.nav-links>li:hover>a .arr{transform:rotate(180deg);}
+
+.dropdown{
+  position:absolute;top:100%;left:0;padding-top:16px;
+  min-width:230px;opacity:0;pointer-events:none;
+  transform:translateY(6px);transition:opacity .25s,transform .25s;z-index:600;
+}
+.dd-inner{
+  background:rgba(1,8,22,.98);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  border:1px solid var(--bd);border-radius:14px;padding:8px;
+  box-shadow:0 24px 64px rgba(0,0,0,.7);
+}
+.nav-links>li:hover>.dropdown{opacity:1;pointer-events:all;transform:translateY(0);}
+.dropdown a{
+  display:flex;align-items:center;gap:8px;padding:10px 14px;
+  text-decoration:none;color:rgba(255,255,255,.65);font-size:12.5px;
+  border-radius:9px;transition:background .2s,color .2s,padding-left .2s;
+}
+.dropdown a:hover{background:rgba(37,99,235,.14);color:#fff;padding-left:20px;}
+
+.nav-apply{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  color:#fff!important;padding:9px 16px!important;border-radius:8px!important;
+  font-weight:600!important;font-size:12.5px!important;
+  box-shadow:0 4px 20px rgba(30,64,175,.45);
+  transition:transform .25s,box-shadow .25s!important;
+  display:flex!important;align-items:center!important;gap:5px!important;
+}
+.nav-apply::before{
+  content:'';position:absolute;top:-50%;left:-70%;width:55%;height:200%;
+  background:rgba(255,255,255,.14);transform:skewX(-20deg);
+  animation:btnShine 3.5s ease-in-out infinite;
+}
+@keyframes btnShine{0%,100%{left:-70%;}50%{left:130%;}}
+.nav-apply:hover{transform:translateY(-2px)!important;box-shadow:0 8px 28px rgba(59,130,246,.55)!important;}
+
+/* ══ DESKTOP LOGIN BUTTON — styled dropdown trigger ══ */
+.nav-login-btn{
+  background:rgba(37,99,235,.12) !important;
+  border:1.5px solid rgba(59,130,246,.35) !important;
+  border-radius:8px !important;
+  color:#fff !important;
+  font-weight:600 !important;
+  gap:5px !important;
+  transition:background .25s,border-color .25s,box-shadow .25s !important;
+}
+.nav-login-btn:hover{
+  background:rgba(37,99,235,.25) !important;
+  border-color:rgba(59,130,246,.6) !important;
+  box-shadow:0 0 18px rgba(37,99,235,.25) !important;
+}
+/* Make login dropdown items look richer */
+li:has(.nav-login-btn) .dropdown a{
+  padding:12px 16px;gap:10px;
+}
+
+/* ══ MOBILE LOGIN BUTTON SYSTEM ══ */
+.mob-login-btns{
+  padding:10px 4px 6px;
+}
+.mob-login-label{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.5);
+  text-transform:uppercase;letter-spacing:1.5px;
+  padding:0 6px 10px;border-bottom:1px solid rgba(37,99,235,.12);
+  margin-bottom:12px;
+}
+.mob-login-label .mni{font-size:15px;}
+.mob-login-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.mob-login-btn-s,.mob-login-btn-t{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+  padding:14px 16px;border-radius:12px;
+  border:1.5px solid;
+  position:relative;overflow:hidden;
+  transition:transform .22s,box-shadow .22s,border-color .22s,background .22s;
+}
+.mob-login-btn-s{
+  background:rgba(37,99,235,.1);
+  border-color:rgba(59,130,246,.3);
+  color:var(--a4);
+}
+.mob-login-btn-t{
+  background:rgba(14,165,233,.08);
+  border-color:rgba(14,165,233,.25);
+  color:#7dd3fc;
+}
+.mob-login-btn-s:hover,.mob-login-btn-t:hover{
+  transform:translateY(-2px);
+}
+.mob-login-btn-s:hover{
+  background:rgba(37,99,235,.22);border-color:rgba(59,130,246,.6);
+  box-shadow:0 8px 24px rgba(37,99,235,.25);
+}
+.mob-login-btn-t:hover{
+  background:rgba(14,165,233,.18);border-color:rgba(14,165,233,.55);
+  box-shadow:0 8px 24px rgba(14,165,233,.2);
+}
+.mob-login-btn-s svg,.mob-login-btn-t svg{flex-shrink:0;opacity:.85;}
+.mlb-title{font-size:14px;font-weight:700;line-height:1.2;color:#fff;}
+.mlb-sub{font-size:10.5px;font-weight:300;color:rgba(255,255,255,.45);margin-top:2px;}
+
+/* ══ ADMISSIONS PARALLAX BACKGROUND ══ */
+.adm-section{
+  position:relative;
+  overflow:hidden;
+  background:transparent !important;
+}
+.adm-parallax-bg{
+  position:absolute;inset:-60px;z-index:0;
+  background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  filter:brightness(.2) saturate(.6);
+  transform:scale(1.05);
+}
+.adm-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(135deg,rgba(8,20,64,.88) 0%,rgba(5,13,30,.75) 50%,rgba(8,20,64,.85) 100%);
+}
+.adm-section .sec-inner{
+  position:relative;z-index:2;
+}
+
+/* ══ MOBILE LOGIN CARDS ══ */
+.mob-login-cards{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  padding:10px 4px;
+}
+.mob-login-card{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+  border-radius:12px;padding:14px 14px;
+  border:1.5px solid var(--bd2);
+  transition:background .25s,border-color .25s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.mob-login-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(37,99,235,.15),transparent);
+  opacity:0;transition:opacity .25s;
+}
+.mob-login-card:hover::before{opacity:1;}
+.mob-login-card:hover{border-color:rgba(59,130,246,.45);transform:translateY(-2px);}
+.mob-login-card.student{background:rgba(37,99,235,.08);}
+.mob-login-card.teacher{background:rgba(14,165,233,.06);border-color:rgba(14,165,233,.2);}
+.mob-login-card.teacher:hover{border-color:rgba(14,165,233,.5);}
+.mlc-icon{font-size:22px;flex-shrink:0;}
+.mlc-text{flex:1;min-width:0;}
+.mlc-label{font-size:14px;font-weight:600;color:#fff;line-height:1.2;}
+.mlc-sub{font-size:10.5px;font-weight:300;color:rgba(255,255,255,.45);margin-top:2px;}
+.mlc-arr{color:var(--a4);flex-shrink:0;opacity:.7;}
+
+/* ══ VIEW ALL VIDEOS BUTTON ══ */
+.btn-view-all-vid{
+  display:inline-flex;align-items:center;gap:10px;
+  text-decoration:none;
+  background:linear-gradient(135deg,rgba(30,64,175,.3),rgba(37,99,235,.2));
+  border:1.5px solid var(--bd);
+  color:var(--a4);
+  font-size:14px;font-weight:600;letter-spacing:.3px;
+  padding:14px 36px;border-radius:10px;
+  backdrop-filter:blur(10px);
+  position:relative;overflow:hidden;
+  transition:border-color .3s,color .3s,background .3s,transform .3s,box-shadow .3s;
+}
+.btn-view-all-vid::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(37,99,235,.35),rgba(59,130,246,.25));
+  opacity:0;transition:opacity .3s;
+}
+.btn-view-all-vid:hover{
+  border-color:var(--a3);color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(30,64,175,.35);
+}
+.btn-view-all-vid:hover::before{opacity:1;}
+.btn-view-all-vid svg,.btn-view-all-vid span{position:relative;z-index:1;}
+.btn-view-all-vid>*{position:relative;z-index:1;}
+
+/* ══════════════════ HAMBURGER — outside nav, truly fixed ══════════════════ */
+/* This element is placed OUTSIDE <nav> in the HTML so it's never inside nav's stacking context */
+#ham{
+  display:none;
+  position:fixed;top:16px;right:18px;
+  z-index:99999;
+  flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  width:46px;height:46px;padding:6px;
+  background:rgba(10,24,64,0.85);border:1.5px solid rgba(59,130,246,.45);
+  border-radius:10px;cursor:pointer;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  -webkit-tap-highlight-color:transparent;
+  transition:background .25s,border-color .25s;
+}
+#ham:hover,#ham:focus{background:rgba(37,99,235,.35);border-color:var(--a3);outline:none;}
+#ham span{
+  display:block;width:22px;height:2.5px;
+  background:#fff;border-radius:3px;pointer-events:none;
+  transition:transform .38s cubic-bezier(.23,1,.32,1),opacity .3s,background .25s;
+  transform-origin:center;
+}
+#ham.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg);background:var(--a4);}
+#ham.active span:nth-child(2){opacity:0;transform:scaleX(0);}
+#ham.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);background:var(--a4);}
+@media(max-width:1199px){
+  #ham{display:flex!important;}
+  .nav-links{display:none!important;}
+  nav{padding:0 24px;padding-right:72px;}
+}
+
+/* ══════════════════ MOBILE MENU ══════════════════ */
+#mobMenu{
+  position:fixed;inset:0;
+  z-index:5000; /* below hamburger (9999) */
+  background:rgba(1,6,17,.98);
+  backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);
+  display:flex;flex-direction:column;align-items:stretch;
+  padding:20px 24px 40px;overflow-y:auto;
+  opacity:0;pointer-events:none;
+  transform:translateX(105%);
+  transition:opacity .38s ease,transform .4s cubic-bezier(.23,1,.32,1);
+}
+#mobMenu.open{opacity:1;pointer-events:all;transform:translateX(0);}
+
+/* stagger items — mob-logo is child(1), so mob-items are children 2-10 */
+.mob-item{opacity:0;transform:translateX(30px);transition:opacity .35s,transform .35s;}
+#mobMenu.open .mob-item{opacity:1;transform:none;}
+#mobMenu.open .mob-item:nth-child(2){transition-delay:.06s;}
+#mobMenu.open .mob-item:nth-child(3){transition-delay:.10s;}
+#mobMenu.open .mob-item:nth-child(4){transition-delay:.14s;}
+#mobMenu.open .mob-item:nth-child(5){transition-delay:.18s;}
+#mobMenu.open .mob-item:nth-child(6){transition-delay:.22s;}
+#mobMenu.open .mob-item:nth-child(7){transition-delay:.26s;}
+#mobMenu.open .mob-item:nth-child(8){transition-delay:.30s;}
+#mobMenu.open .mob-item:nth-child(9){transition-delay:.34s;}
+#mobMenu.open .mob-item:nth-child(10){transition-delay:.38s;}
+#mobMenu.open .mob-item:nth-child(11){transition-delay:.42s;}
+
+.mob-link{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:14px 16px;font-size:15px;font-weight:500;
+  color:rgba(255,255,255,.85);text-decoration:none;
+  background:none;border:none;border-bottom:1px solid rgba(37,99,235,.1);
+  border-radius:10px;cursor:pointer;font-family:'Outfit',sans-serif;
+  transition:background .25s,color .25s;
+}
+.mob-link:hover,.mob-link.expanded{background:rgba(37,99,235,.1);color:var(--a4);}
+.mob-ll{display:flex;align-items:center;gap:10px;}
+.mob-ll .mni{font-size:18px;line-height:1;}
+.mob-arr{font-size:13px;color:var(--a4);transition:transform .3s;flex-shrink:0;}
+.mob-link.expanded .mob-arr{transform:rotate(90deg);}
+.mob-sub{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.mob-sub.open{max-height:400px;}
+.mob-sub a{
+  display:flex;align-items:center;gap:8px;
+  padding:11px 20px;font-size:13.5px;font-weight:300;
+  color:rgba(255,255,255,.52);text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.04);transition:color .2s;
+}
+.mob-sub a:hover{color:var(--a4);}
+.mob-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:24px;padding:16px;text-decoration:none;
+  font-size:15px;font-weight:600;color:#fff;
+  background:linear-gradient(135deg,var(--a1),var(--a2));border-radius:12px;
+  box-shadow:0 8px 28px rgba(30,64,175,.45);position:relative;overflow:hidden;
+  transition:transform .25s,box-shadow .25s;
+}
+.mob-cta-btn::before{
+  content:'';position:absolute;top:-50%;left:-70%;width:55%;height:200%;
+  background:rgba(255,255,255,.14);transform:skewX(-20deg);
+  animation:btnShine 3s ease-in-out infinite;
+}
+.mob-cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(59,130,246,.55);}
+
+/* ══════════════════ HERO ══════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;overflow:hidden;
+  padding:88px 5% 56px;background:var(--n1);
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 65% 80% at 5% 50%,rgba(30,64,175,.2) 0%,transparent 55%),
+    radial-gradient(ellipse 55% 65% at 95% 15%,rgba(59,130,246,.12) 0%,transparent 55%),
+    linear-gradient(160deg,#010611 0%,#081428 45%,#010611 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px);
+  background-size:55px 55px;
+}
+.glow-r{
+  position:absolute;right:-80px;top:50%;transform:translateY(-50%);
+  width:650px;height:650px;border-radius:50%;
+  background:radial-gradient(circle,rgba(30,64,175,.2) 0%,transparent 65%);
+  z-index:0;pointer-events:none;animation:gpulse 6s ease-in-out infinite alternate;
+}
+@keyframes gpulse{0%{opacity:.7;transform:translateY(-50%) scale(1);}100%{opacity:1;transform:translateY(-50%) scale(1.1);}}
+.ptcls{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.ptcl{position:absolute;border-radius:50%;animation:pfloat linear infinite;opacity:0;}
+@keyframes pfloat{0%{transform:translateY(110vh);opacity:0;}10%{opacity:.6;}90%{opacity:.2;}100%{transform:translateY(-5vh);opacity:0;}}
+
+.hero-inner{
+  position:relative;z-index:2;width:100%;max-width:1320px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.45fr;gap:44px;align-items:center;
+}
+@keyframes fadeL{from{opacity:0;transform:translateX(-38px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeR{from{opacity:0;transform:translateX(38px);}to{opacity:1;transform:translateX(0);}}
+
+.hero-left{animation:fadeL 1s ease both;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(30,64,175,.12);border:1px solid rgba(59,130,246,.3);
+  border-radius:100px;padding:7px 18px 7px 10px;margin-bottom:26px;
+  box-shadow:0 0 20px rgba(30,64,175,.16);animation:fadeL 1s .08s ease both;
+}
+.ldot{width:8px;height:8px;background:var(--a3);border-radius:50%;box-shadow:0 0 0 3px rgba(59,130,246,.25);animation:ldotp 1.6s ease-in-out infinite;}
+@keyframes ldotp{0%,100%{box-shadow:0 0 0 3px rgba(59,130,246,.22);}50%{box-shadow:0 0 0 7px rgba(59,130,246,.06);}}
+.hero-badge span{font-size:11.5px;font-weight:500;color:var(--a4);letter-spacing:.3px;}
+
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,62px);font-weight:900;line-height:1.06;letter-spacing:-1px;
+  color:#fff;margin-bottom:18px;animation:fadeL 1s .12s ease both;
+}
+.grad-text{
+  display:inline;
+  background:linear-gradient(100deg,#60a5fa 0%,#3b82f6 25%,#93c5fd 55%,#bfdbfe 75%,#60a5fa 100%);
+  background-size:240% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:gshift 5s linear infinite;
+  filter:drop-shadow(0 0 18px rgba(59,130,246,.4));
+}
+@keyframes gshift{0%{background-position:0 center;}100%{background-position:240% center;}}
+
+/* TYPING ROW */
+.typing-row{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(14px,1.8vw,24px);font-weight:400;font-style:italic;
+  color:rgba(255,255,255,.62);min-height:36px;
+  display:flex;align-items:center;margin-bottom:18px;
+  animation:fadeL 1s .16s ease both;
+}
+#typedText{color:var(--a4);}
+.cur{
+  display:inline-block;width:2px;height:.95em;
+  background:var(--a3);margin-left:2px;vertical-align:middle;
+  animation:cblink .75s step-end infinite;
+}
+@keyframes cblink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.hero-desc{
+  font-size:clamp(13px,1.25vw,15px);font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,.5);max-width:500px;margin-bottom:32px;
+  animation:fadeL 1s .2s ease both;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;animation:fadeL 1s .25s ease both;}
+.btn-p{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;text-decoration:none;
+  font-size:14px;font-weight:600;letter-spacing:.3px;padding:13px 28px;border-radius:9px;
+  box-shadow:0 6px 28px rgba(30,64,175,.42);transition:transform .3s,box-shadow .3s;
+}
+.btn-p::before{
+  content:'';position:absolute;top:-50%;left:-75%;width:55%;height:200%;
+  background:rgba(255,255,255,.14);transform:skewX(-20deg);animation:btnShine 3.5s ease-in-out infinite;
+}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(59,130,246,.55),0 0 0 3px rgba(59,130,246,.18);}
+.btn-s{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1.5px solid rgba(59,130,246,.3);color:var(--a4);text-decoration:none;
+  font-size:14px;font-weight:500;padding:13px 22px;border-radius:9px;
+  background:rgba(59,130,246,.05);backdrop-filter:blur(8px);
+  transition:border-color .3s,color .3s,background .3s,transform .3s,box-shadow .3s;
+}
+.btn-s:hover{border-color:var(--a3);color:#fff;background:rgba(59,130,246,.12);transform:translateY(-3px);}
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:36px;
+  border:1px solid var(--bd);border-radius:14px;
+  background:rgba(8,20,40,.5);backdrop-filter:blur(16px);overflow:hidden;
+  animation:fadeL 1s .32s ease both;
+}
+.stat{flex:1;min-width:85px;padding:18px 10px;text-align:center;border-right:1px solid var(--bd);position:relative;transition:background .3s;}
+.stat::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:linear-gradient(90deg,transparent,var(--a3),transparent);transition:width .4s;}
+.stat:hover::after{width:80%;}
+.stat:last-child{border-right:none;}
+.stat:hover{background:rgba(30,64,175,.1);}
+.stat-n{
+  font-family:'Playfair Display',serif;font-size:clamp(20px,2.2vw,32px);font-weight:700;line-height:1;
+  background:linear-gradient(135deg,var(--a3),var(--a4));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 8px rgba(59,130,246,.35));
+}
+.stat-l{font-size:9px;font-weight:400;color:rgba(255,255,255,.38);letter-spacing:.5px;margin-top:4px;}
+
+/* VIDEO RIGHT */
+.hero-right{animation:fadeR 1s .1s ease both;}
+.video-frame{
+  position:relative;border-radius:20px;overflow:hidden;
+  border:1px solid var(--bd);aspect-ratio:16/9;background:#000;
+  box-shadow:0 40px 100px rgba(0,0,0,.65),0 0 60px rgba(30,64,175,.22);
+}
+.video-frame::before,.video-frame::after{
+  content:'';position:absolute;width:28px;height:28px;
+  border-color:var(--a3);border-style:solid;z-index:3;pointer-events:none;
+}
+.video-frame::before{top:12px;left:12px;border-width:2px 0 0 2px;border-radius:4px 0 0 0;}
+.video-frame::after{bottom:12px;right:12px;border-width:0 2px 2px 0;border-radius:0 0 4px 0;}
+#heroVid{width:100%;height:100%;object-fit:cover;display:block;}
+.vid-glow{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 40px rgba(1,6,17,.4);border-radius:20px;}
+.vid-label{position:absolute;bottom:14px;left:14px;z-index:4;background:rgba(1,6,17,.82);backdrop-filter:blur(12px);border:1px solid var(--bd);border-radius:8px;padding:5px 13px;font-size:10.5px;font-weight:500;color:var(--a4);letter-spacing:.4px;}
+.vid-live{position:absolute;top:12px;right:12px;z-index:4;display:flex;align-items:center;gap:5px;background:rgba(1,6,17,.75);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:100px;padding:5px 12px;}
+.vid-live .dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:ldotp 1.4s ease-in-out infinite;}
+.vid-live span{font-size:10px;font-weight:500;color:rgba(255,255,255,.7);}
+/* Sound unlock prompt */
+#soundPrompt{
+  position:absolute;bottom:52px;left:50%;transform:translateX(-50%);
+  z-index:5;background:rgba(1,6,17,.82);backdrop-filter:blur(14px);
+  border:1px solid rgba(59,130,246,.4);border-radius:12px;
+  padding:12px 22px;color:#fff;text-align:center;cursor:pointer;white-space:nowrap;
+  box-shadow:0 0 0 0 rgba(59,130,246,.3);
+  animation:soundPulseRing 2s ease-in-out infinite;
+  transition:opacity .4s;
+}
+#soundPrompt .sp-icon{font-size:22px;display:block;margin-bottom:4px;animation:spBounce 1.2s ease-in-out infinite;}
+#soundPrompt .sp-txt{font-size:11.5px;font-weight:600;color:var(--a4);letter-spacing:.5px;}
+@keyframes spBounce{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+@keyframes soundPulseRing{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.35);}50%{box-shadow:0 0 0 10px rgba(59,130,246,.0);}}
+#soundToggle{position:absolute;bottom:14px;right:14px;z-index:4;background:rgba(1,6,17,.75);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:8px;padding:5px 12px;font-size:10px;color:rgba(255,255,255,.55);cursor:pointer;transition:color .2s;}
+#soundToggle:hover{color:var(--a4);}
+
+.scroll-hint{position:absolute;bottom:22px;left:5%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:5px;animation:fadeL 1s .55s ease both;}
+.scroll-hint span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);}
+.scroll-line{width:1px;height:38px;background:linear-gradient(to bottom,rgba(59,130,246,.4),transparent);animation:sdrop 2s ease-in-out infinite;}
+@keyframes sdrop{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* ══════════════════ MOBILE TICKER ══════════════════ */
+.mob-ticker{display:none;}
+@media(max-width:860px){.mob-ticker{display:block;background:var(--n3);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);padding:11px 0;overflow:hidden;}}
+.mob-ticker-inner,.ticker-inner{display:flex;gap:64px;white-space:nowrap;width:max-content;animation:ntick 26s linear infinite;}
+.mob-ticker-inner span,.ticker-inner span{font-size:12px;font-weight:500;color:var(--a4);flex-shrink:0;}
+.mob-ticker-inner span::before,.ticker-inner span::before{content:'📌 ';}
+@keyframes ntick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.ticker-bar{background:var(--n2);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);padding:12px 0;overflow:hidden;}
+
+/* ══════════════════ SHARED SECTION ══════════════════ */
+.section{padding:88px 5%;}
+.sec-inner{max-width:1200px;margin:0 auto;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.lbl{display:inline-block;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--a3);margin-bottom:14px;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,46px);font-weight:700;line-height:1.1;color:#fff;margin-bottom:16px;}
+.hl{background:linear-gradient(90deg,var(--a3),var(--a4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.body-text{font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.55);}
+
+.img-wrap{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.55);}
+.img-wrap img{width:100%;height:400px;object-fit:cover;filter:brightness(.82);display:block;transition:filter .5s;}
+.img-wrap:hover img{filter:brightness(.95);}
+.img-wrap::after{content:'';position:absolute;inset:0;border:1px solid var(--bd2);border-radius:18px;pointer-events:none;}
+.img-wrap::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(1,6,17,.55),transparent 50%);}
+.img-tag{position:absolute;bottom:20px;left:20px;z-index:2;background:rgba(1,6,17,.8);backdrop-filter:blur(14px);border:1px solid var(--bd);border-radius:10px;padding:12px 18px;}
+.img-tag .big{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--a4);}
+.img-tag .sm{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:.5px;}
+
+/* FEATURES */
+.feat-section{background:rgba(37,99,235,.025);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);padding:88px 5%;}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:44px;max-width:1200px;margin-left:auto;margin-right:auto;}
+.feat-card{background:rgba(37,99,235,.04);border:1px solid var(--bd2);border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;transition:background .3s,transform .3s,border-color .3s,box-shadow .3s;}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a3),transparent);opacity:0;transition:opacity .3s;}
+.feat-card:hover{background:rgba(30,64,175,.1);border-color:rgba(59,130,246,.3);transform:translateY(-6px);box-shadow:0 20px 55px rgba(30,64,175,.13);}
+.feat-card:hover::before{opacity:1;}
+.feat-icon{width:48px;height:48px;border-radius:11px;background:rgba(30,64,175,.12);border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.feat-title{font-size:15px;font-weight:600;color:#fff;margin-bottom:8px;}
+.feat-desc{font-size:13px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.47);}
+
+/* ADMISSIONS */
+.adm-card{background:linear-gradient(135deg,rgba(12,28,56,.65),rgba(7,18,40,.9));border:1px solid var(--bd);border-radius:20px;padding:40px 34px;box-shadow:0 0 40px rgba(30,64,175,.07);}
+.adm-card h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;}
+.adm-card p{font-size:13px;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:24px;line-height:1.75;}
+.steps{list-style:none;}
+.steps li{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid rgba(37,99,235,.08);font-size:13.5px;color:rgba(255,255,255,.7);}
+.steps li:last-child{border-bottom:none;}
+.step-n{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;box-shadow:0 4px 12px rgba(30,64,175,.4);}
+
+/* VIDEO SECTION */
+.vid-section{padding:88px 5%;background:var(--n2);border-top:1px solid var(--bd2);}
+.vid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;max-width:1400px;margin-left:auto;margin-right:auto;}
+.vid-card{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--bd2);cursor:pointer;aspect-ratio:16/9;background:#000;transition:transform .35s,box-shadow .35s,border-color .35s;}
+.vid-card:hover{transform:scale(1.03);box-shadow:0 22px 60px rgba(0,0,0,.6),0 0 0 1px rgba(59,130,246,.3);}
+.vid-thumb{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.68);transition:filter .4s;}
+.vid-card:hover .vid-thumb{filter:brightness(.5);}
+.vid-play-btn{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+.play-circle{width:60px;height:60px;border-radius:50%;background:rgba(30,64,175,.7);backdrop-filter:blur(8px);border:2px solid rgba(59,130,246,.5);display:flex;align-items:center;justify-content:center;transition:background .3s,transform .3s,box-shadow .3s;box-shadow:0 0 0 12px rgba(30,64,175,.15),0 0 0 24px rgba(30,64,175,.06);}
+.vid-card:hover .play-circle{background:var(--a2);border-color:var(--a3);transform:scale(1.12);box-shadow:0 0 0 16px rgba(30,64,175,.2),0 0 40px rgba(59,130,246,.4);}
+.play-circle svg{margin-left:4px;}
+.vid-card-title{font-size:12px;font-weight:500;color:rgba(255,255,255,.8);text-align:center;padding:0 12px;}
+.vid-dur{position:absolute;bottom:10px;right:10px;background:rgba(1,6,17,.82);border:1px solid var(--bd2);border-radius:5px;padding:3px 8px;font-size:10px;color:rgba(255,255,255,.7);}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{position:relative;width:100%;max-width:900px;border-radius:16px;overflow:hidden;border:1px solid var(--bd);box-shadow:0 40px 100px rgba(0,0,0,.8);transform:scale(.94);transition:transform .35s;}
+.modal-overlay.open .modal-box{transform:scale(1);}
+.modal-box iframe{display:block;width:100%;aspect-ratio:16/9;border:none;}
+.modal-close{position:absolute;top:12px;right:12px;z-index:5;width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:rgba(1,6,17,.85);border:1px solid var(--bd);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;}
+.modal-close:hover{background:rgba(30,64,175,.4);transform:rotate(90deg);}
+
+/* GALLERY */
+.gal-section{background:rgba(37,99,235,.02);border-top:1px solid var(--bd2);padding:88px 5%;}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:190px 190px;gap:12px;margin-top:44px;max-width:1200px;margin-left:auto;margin-right:auto;}
+.gal-item{border-radius:11px;overflow:hidden;position:relative;background:rgba(12,28,56,.5);border:1px solid var(--bd2);cursor:pointer;transition:transform .35s,box-shadow .35s;}
+.gal-item:hover{transform:scale(1.03);box-shadow:0 20px 55px rgba(0,0,0,.5),0 0 0 1px rgba(59,130,246,.25);}
+.gal-item.big{grid-column:span 2;grid-row:span 2;}
+.gal-item img{width:100%;height:100%;object-fit:cover;filter:brightness(.72);transition:filter .4s;}
+.gal-item:hover img{filter:brightness(1);}
+.gal-cap{position:absolute;inset:0;background:linear-gradient(to top,rgba(1,6,17,.8),transparent 55%);display:flex;align-items:flex-end;padding:14px;opacity:0;transition:opacity .3s;}
+.gal-item:hover .gal-cap{opacity:1;}
+.gal-cap span{font-size:12px;font-weight:500;color:#fff;}
+
+/* CTA */
+.cta-section{padding:88px 5%;text-align:center;background:linear-gradient(160deg,rgba(12,28,56,.35),rgba(1,6,17,.65));border-top:1px solid var(--bd2);}
+.cta-cards{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:40px;}
+.cta-card{background:rgba(30,64,175,.05);border:1px solid var(--bd2);border-radius:14px;padding:24px 26px;min-width:155px;text-decoration:none;transition:background .3s,border-color .3s,transform .3s,box-shadow .3s;}
+.cta-card:hover{background:rgba(30,64,175,.13);border-color:rgba(59,130,246,.35);transform:translateY(-5px);box-shadow:0 16px 44px rgba(30,64,175,.15);}
+.cta-card .ci{font-size:24px;margin-bottom:9px;}
+.cta-card .ct{font-size:13px;font-weight:600;color:#fff;}
+.cta-card .cs{font-size:11px;font-weight:300;color:rgba(255,255,255,.38);margin-top:3px;}
+
+/* FOOTER */
+footer{background:linear-gradient(160deg,#030a1c 0%,#071430 35%,#04091f 70%,#010611 100%);border-top:1px solid var(--bd);padding:64px 5% 0;position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(30,64,175,.1) 0%,transparent 65%);pointer-events:none;}
+.foot-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;position:relative;z-index:1;padding-bottom:48px;border-bottom:1px solid var(--bd2);}
+.foot-brand .fn{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:10px;background:linear-gradient(90deg,#fff,var(--a4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.foot-brand p{font-size:13px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.42);margin-bottom:22px;}
+.socials{display:flex;gap:10px;flex-wrap:wrap;}
+.soc-btn{width:36px;height:36px;border-radius:50%;background:rgba(37,99,235,.08);border:1px solid var(--bd2);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;color:rgba(255,255,255,.58);transition:background .25s,color .25s,box-shadow .25s,border-color .25s;}
+.soc-btn:hover{background:rgba(30,64,175,.25);color:#fff;border-color:var(--a3);box-shadow:0 0 16px rgba(59,130,246,.3);}
+.foot-col h4{font-size:11px;font-weight:600;color:var(--a4);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.foot-col a{display:flex;align-items:center;gap:6px;text-decoration:none;color:rgba(255,255,255,.42);font-size:13px;font-weight:300;padding:4px 0;transition:color .2s,padding-left .2s;}
+.foot-col a:hover{color:var(--a4);padding-left:5px;}
+.foot-bottom{max-width:1200px;margin:0 auto;padding:20px 0 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
+.foot-bottom span{font-size:11px;font-weight:300;color:rgba(255,255,255,.24);}
+
+/* ══════════════════ MOBILE MENU LOGO ══════════════════ */
+.mob-logo{
+  display:flex;flex-direction:row;align-items:center;
+  gap:12px;
+  padding:0 4px 22px;margin-bottom:16px;
+  border-bottom:1px solid var(--bd2);
+  width:100%;
+}
+.mob-logo-ring{
+  width:52px;height:52px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.mob-logo-ring img{
+  width:52px;height:52px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(59,130,246,.4));
+}
+.mob-logo-text{
+  flex:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+}
+.mob-logo-name{
+  font-family:'Playfair Display',serif;font-size:11px;font-weight:500;
+  color:rgba(255,255,255,.5);line-height:1.3;letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.mob-logo-sub{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:900;color:#fff;
+  letter-spacing:1px;line-height:1.2;
+  text-transform:uppercase;text-align:center;
+}
+
+/* ══════════════════ NOTICE NAV BADGE ══════════════════ */
+.notice-nav-btn{position:relative;}
+.notice-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:18px;height:18px;padding:0 4px;
+  background:#ef4444;border-radius:100px;
+  font-size:10px;font-weight:700;color:#fff;
+  vertical-align:middle;margin-left:4px;
+  box-shadow:0 0 8px rgba(239,68,68,.55);
+  animation:badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 8px rgba(239,68,68,.55);}50%{box-shadow:0 0 16px rgba(239,68,68,.8);}}
+
+/* ══════════════════ NOTICE POPUP ══════════════════ */
+.notice-overlay{
+  position:fixed;inset:0;z-index:9500;
+  background:rgba(0,0,0,.75);backdrop-filter:blur(12px);
+  display:flex;align-items:flex-start;justify-content:flex-end;
+  padding:80px 20px 20px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.notice-overlay.open{opacity:1;pointer-events:all;}
+.notice-panel{
+  width:100%;max-width:480px;max-height:calc(100vh - 110px);
+  background:rgba(5,13,30,.98);
+  border:1px solid var(--bd);border-radius:18px;
+  display:flex;flex-direction:column;
+  box-shadow:0 30px 80px rgba(0,0,0,.8),0 0 0 1px rgba(59,130,246,.08);
+  transform:translateY(-10px) scale(.97);transition:transform .35s ease;
+  overflow:hidden;
+}
+.notice-overlay.open .notice-panel{transform:translateY(0) scale(1);}
+.notice-panel-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px 16px;border-bottom:1px solid var(--bd2);flex-shrink:0;
+}
+.notice-panel-title{display:flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;}
+.np-icon{font-size:18px;}
+.np-count{
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;
+  background:#ef4444;color:#fff;padding:2px 8px;border-radius:100px;
+  margin-left:4px;
+}
+.notice-close{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--bd2);
+  background:rgba(37,99,235,.1);color:#fff;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .25s;
+}
+.notice-close:hover{background:rgba(239,68,68,.25);border-color:rgba(239,68,68,.4);transform:rotate(90deg);}
+.notice-list{overflow-y:auto;flex:1;padding:8px 0;}
+.notice-list::-webkit-scrollbar{width:4px;}
+.notice-list::-webkit-scrollbar-thumb{background:var(--a2);border-radius:2px;}
+.notice-item{
+  display:flex;gap:14px;padding:16px 22px;
+  text-decoration:none;color:inherit;
+  border-bottom:1px solid rgba(37,99,235,.08);
+  transition:background .2s;
+}
+.notice-item:hover{background:rgba(37,99,235,.07);}
+.notice-item.new-notice{background:rgba(239,68,68,.04);}
+.notice-item.new-notice:hover{background:rgba(239,68,68,.08);}
+.ni-thumb-wrap{position:relative;flex-shrink:0;}
+.ni-thumb{width:72px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--bd2);display:block;}
+.ni-new-dot{
+  position:absolute;top:-4px;right:-4px;
+  width:12px;height:12px;background:#ef4444;border-radius:50%;
+  border:2px solid var(--n1);
+  box-shadow:0 0 8px rgba(239,68,68,.7);
+  animation:badgePulse 1.5s ease-in-out infinite;
+}
+.ni-body{flex:1;min-width:0;}
+.ni-cat{font-size:10px;font-weight:600;color:var(--a4);letter-spacing:.5px;text-transform:uppercase;}
+.ni-title{font-size:13.5px;font-weight:600;color:#fff;margin:4px 0 5px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ni-desc{font-size:11.5px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:6px;}
+.ni-meta{display:flex;align-items:center;gap:8px;}
+.ni-date{font-size:10.5px;font-weight:400;color:rgba(255,255,255,.35);}
+.ni-new-tag{font-size:9px;font-weight:700;background:#ef4444;color:#fff;padding:2px 6px;border-radius:4px;letter-spacing:.5px;}
+.notice-panel-footer{padding:14px 22px;border-top:1px solid var(--bd2);text-align:center;flex-shrink:0;}
+
+/* ══════════════════ ABOUT VIDEO ══════════════════ */
+.about-vid-wrap{
+  position:relative;border-radius:18px;overflow:hidden;cursor:pointer;
+  aspect-ratio:16/9;border:1px solid var(--bd);
+  box-shadow:0 40px 100px rgba(0,0,0,.55),0 0 50px rgba(30,64,175,.18);
+}
+.about-vid-thumb{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.72);transition:filter .4s;}
+.about-vid-wrap:hover .about-vid-thumb{filter:brightness(.55);}
+.about-vid-overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(to top,rgba(1,6,17,.5),transparent 60%);
+}
+.about-play-circle{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(30,64,175,.75);backdrop-filter:blur(8px);
+  border:2px solid rgba(59,130,246,.6);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 14px rgba(30,64,175,.18),0 0 0 28px rgba(30,64,175,.07);
+  transition:transform .3s,background .3s,box-shadow .3s;
+}
+.about-vid-wrap:hover .about-play-circle{
+  transform:scale(1.1);background:var(--a2);
+  box-shadow:0 0 0 18px rgba(30,64,175,.22),0 0 50px rgba(59,130,246,.4);
+}
+.about-vid-label{font-size:13px;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:.4px;}
+.about-vid-corner-tl,.about-vid-corner-br{position:absolute;width:26px;height:26px;border-color:var(--a3);border-style:solid;pointer-events:none;}
+.about-vid-corner-tl{top:12px;left:12px;border-width:2px 0 0 2px;border-radius:4px 0 0 0;}
+.about-vid-corner-br{bottom:12px;right:12px;border-width:0 2px 2px 0;border-radius:0 0 4px 0;}
+
+/* Direct video embed in About section */
+.about-yt-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:14px;
+  overflow:hidden;
+  background:#000;
+  box-shadow:0 8px 32px rgba(0,0,0,.45);
+}
+.about-yt-frame iframe,
+.about-yt-frame video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
+  display:block;
+}
+
+/* ══ HERO TAP-TO-PLAY OVERLAY ══ */
+.hero-tap-overlay{
+  position:absolute;inset:0;z-index:6;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:rgba(5,13,30,.55);
+  cursor:pointer;border-radius:20px;
+  transition:background .3s;
+}
+.hero-tap-overlay:hover{background:rgba(5,13,30,.4);}
+.hero-big-play{
+  width:82px;height:82px;border-radius:50%;
+  background:rgba(37,99,235,.78);
+  backdrop-filter:blur(8px);
+  border:2px solid rgba(59,130,246,.65);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 16px rgba(37,99,235,.18),0 0 0 32px rgba(37,99,235,.07);
+  transition:transform .3s,background .3s,box-shadow .3s;
+}
+.hero-tap-overlay:hover .hero-big-play{
+  transform:scale(1.1);background:var(--a2);
+  box-shadow:0 0 0 20px rgba(37,99,235,.22),0 0 55px rgba(59,130,246,.5);
+}
+.hero-tap-label{
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.9);
+  letter-spacing:.5px;text-transform:uppercase;
+}
+
+/* Tap-to-play overlay */
+.about-tap-overlay{
+  position:absolute;inset:0;z-index:5;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:rgba(5,13,30,.52);
+  cursor:pointer;
+  transition:background .3s;
+  border-radius:14px;
+}
+.about-tap-overlay:hover{background:rgba(5,13,30,.38);}
+.about-tap-overlay.hidden{opacity:0;pointer-events:none;transition:opacity .4s;}
+.about-big-play{
+  width:78px;height:78px;border-radius:50%;
+  background:rgba(37,99,235,.75);
+  backdrop-filter:blur(8px);
+  border:2px solid rgba(59,130,246,.6);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 14px rgba(37,99,235,.18),0 0 0 28px rgba(37,99,235,.07);
+  transition:transform .3s,background .3s,box-shadow .3s;
+}
+.about-tap-overlay:hover .about-big-play{
+  transform:scale(1.1);
+  background:var(--a2);
+  box-shadow:0 0 0 18px rgba(37,99,235,.22),0 0 50px rgba(59,130,246,.45);
+}
+.about-tap-label{
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.85);
+  letter-spacing:.5px;text-transform:uppercase;
+}
+
+/* ══════════════════ ACHIEVEMENTS BLOG ══════════════════ */
+.achieve-section{
+  padding:88px 5%;
+  background:rgba(37,99,235,.025);
+  border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);
+}
+.achieve-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:44px;
+  max-width:1400px;margin-left:auto;margin-right:auto;
+}
+.achieve-card{
+  display:flex;flex-direction:column;
+  background:rgba(8,20,40,.6);border:1px solid var(--bd2);border-radius:16px;
+  overflow:hidden;text-decoration:none;color:inherit;
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+}
+.achieve-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.5),0 0 0 1px rgba(59,130,246,.28);border-color:rgba(59,130,246,.28);}
+.achieve-thumb-wrap{position:relative;aspect-ratio:16/9;overflow:hidden;flex-shrink:0;}
+.achieve-thumb{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.8);transition:filter .4s,transform .4s;}
+.achieve-card:hover .achieve-thumb{filter:brightness(1);transform:scale(1.04);}
+.achieve-cat{
+  position:absolute;top:12px;left:12px;
+  background:rgba(8,20,40,.82);backdrop-filter:blur(8px);
+  border:1px solid var(--bd2);border-radius:100px;
+  padding:4px 12px;font-size:11px;font-weight:600;color:var(--a4);letter-spacing:.4px;
+}
+.achieve-body{padding:20px;flex:1;}
+.achieve-date{font-size:11px;font-weight:400;color:rgba(255,255,255,.38);margin-bottom:8px;letter-spacing:.3px;}
+.achieve-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.achieve-desc{font-size:12.5px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.5);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+/* ══════════════════ VIDEO FULLSCREEN BUTTON ══════════════════ */
+.vid-fullscreen{
+  position:absolute;bottom:14px;right:100px;z-index:4;
+  background:rgba(10,24,64,.82);backdrop-filter:blur(10px);
+  border:1px solid var(--bd);border-radius:8px;padding:5px 12px;
+  color:rgba(255,255,255,.75);cursor:pointer;
+  display:flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:500;
+  transition:color .2s,background .2s,border-color .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.vid-fullscreen:hover{color:#fff;background:rgba(37,99,235,.45);border-color:var(--a3);}
+
+/* When the video-frame container is fullscreen, show minimize icon overlay */
+.video-frame:fullscreen .vid-fullscreen,
+.video-frame:-webkit-full-screen .vid-fullscreen,
+.video-frame:-moz-full-screen .vid-fullscreen,
+.video-frame:-ms-fullscreen .vid-fullscreen{
+  position:fixed;bottom:28px;right:28px;z-index:99999;
+  background:rgba(10,24,64,.9);border-color:var(--a3);
+  color:#fff;padding:10px 20px;font-size:14px;
+  box-shadow:0 8px 32px rgba(0,0,0,.6);
+}
+/* Swap icon text in fullscreen */
+.video-frame:fullscreen .vid-fullscreen .fs-icon,
+.video-frame:-webkit-full-screen .vid-fullscreen .fs-icon,
+.video-frame:-moz-full-screen .vid-fullscreen .fs-icon,
+.video-frame:-ms-fullscreen .vid-fullscreen .fs-icon{
+  display:none;
+}
+.video-frame:fullscreen .vid-fullscreen .ms-icon,
+.video-frame:-webkit-full-screen .vid-fullscreen .ms-icon,
+.video-frame:-moz-full-screen .vid-fullscreen .ms-icon,
+.video-frame:-ms-fullscreen .vid-fullscreen .ms-icon{
+  display:flex;align-items:center;gap:4px;
+}
+.ms-icon{display:none;align-items:center;gap:4px;}
+
+/* Also show controls when video element itself is fullscreen (iOS) */
+video::-webkit-media-controls{display:flex !important;}
+
+/* ══════════════════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+══════════════════════════════════════════════════════ */
+
+/* Base hidden state — elements start hidden */
+.reveal{
+  opacity:0;
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),
+             transform .7s cubic-bezier(.22,1,.36,1);
+  will-change:transform,opacity;
+}
+.reveal.visible{opacity:1;transform:none !important;}
+
+/* Direction variants */
+.reveal-up   {transform:translateY(52px);}
+.reveal-left {transform:translateX(-52px);}
+.reveal-right{transform:translateX(52px);}
+.reveal-scale{transform:scale(.9);}
+.reveal-fade {transform:none;}
+
+/* Stagger delays for grid children */
+.stagger-1{transition-delay:.06s !important;}
+.stagger-2{transition-delay:.13s !important;}
+.stagger-3{transition-delay:.20s !important;}
+.stagger-4{transition-delay:.27s !important;}
+.stagger-5{transition-delay:.34s !important;}
+.stagger-6{transition-delay:.41s !important;}
+
+/* Section label pop */
+.lbl{
+  opacity:0;transform:translateY(16px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.lbl.visible{opacity:1;transform:none;}
+
+/* Ticker bar sweep */
+.ticker-bar,.mob-ticker{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.ticker-bar.visible,.mob-ticker.visible{opacity:1;transform:none;}
+
+/* Stat counter highlight on reveal */
+.hero-stats.visible .stat-n{
+  animation:statGlow .6s ease forwards;
+}
+@keyframes statGlow{
+  0%{filter:drop-shadow(0 0 0 rgba(59,130,246,0));}
+  60%{filter:drop-shadow(0 0 14px rgba(59,130,246,.7));}
+  100%{filter:drop-shadow(0 0 8px rgba(59,130,246,.35));}
+}
+
+/* ══════════════════════════════════════════════════
+   SCROLL REVEAL — RICH ANIMATIONS
+══════════════════════════════════════════════════ */
+
+/* Base reveal state — hidden before visible */
+.reveal{
+  opacity:0;
+  transition-property:opacity,transform,filter;
+  transition-timing-function:cubic-bezier(.22,1,.36,1);
+  transition-duration:.75s;
+  will-change:opacity,transform;
+}
+.reveal.visible{opacity:1;transform:none !important;filter:none !important;}
+
+/* Direction variants */
+.reveal-up   {transform:translateY(48px);}
+.reveal-down {transform:translateY(-36px);}
+.reveal-left {transform:translateX(-52px);}
+.reveal-right{transform:translateX(52px);}
+.reveal-scale{transform:scale(.92);filter:blur(4px);}
+.reveal-fade {transform:none;}
+
+/* Stagger delays */
+.stagger-1{transition-delay:.08s;}
+.stagger-2{transition-delay:.16s;}
+.stagger-3{transition-delay:.24s;}
+.stagger-4{transition-delay:.32s;}
+.stagger-5{transition-delay:.40s;}
+.stagger-6{transition-delay:.48s;}
+
+/* Section labels pop in with colour sweep */
+.lbl{
+  opacity:0;
+  transform:translateX(-16px);
+  transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);
+  display:inline-block;
+}
+.lbl.visible{opacity:1;transform:none;}
+
+/* Section title: slide up + animated underline */
+.sec-title{position:relative;overflow:visible;}
+.sec-title::after{
+  content:'';
+  position:absolute;bottom:-8px;left:0;
+  height:2.5px;width:0;
+  background:linear-gradient(90deg,var(--a2),var(--a4),transparent);
+  transition:width .9s cubic-bezier(.22,1,.36,1) .25s;
+  border-radius:2px;
+}
+.sec-title.visible::after{width:64px;}
+
+/* Ticker bars slide in from bottom */
+.ticker-bar,.mob-ticker{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1);
+}
+.ticker-bar.visible,.mob-ticker.visible{opacity:1;transform:none;}
+
+/* Card hover glow on reveal — keep existing hover transitions */
+.feat-card,.achieve-card,.vid-card,.gal-item,.cta-card{
+  transition:transform .4s cubic-bezier(.22,1,.36,1),
+             box-shadow .4s,border-color .4s,
+             opacity .7s cubic-bezier(.22,1,.36,1),
+             filter .7s;
+}
+
+/* Section divider top lines animate in */
+.section,.feat-section,.gal-section,.achieve-section,.vid-section,
+.adm-section{position:relative;}
+.section::before,.feat-section::before,.gal-section::before,
+.achieve-section::before,.vid-section::before{
+  content:'';position:absolute;top:0;left:5%;right:5%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--bd),transparent);
+  opacity:0;transform:scaleX(0);
+  transition:opacity .8s ease .1s,transform .9s cubic-bezier(.22,1,.36,1) .1s;
+}
+.section.visible::before,.feat-section.visible::before,
+.gal-section.visible::before,.achieve-section.visible::before,
+.vid-section.visible::before{opacity:1;transform:scaleX(1);}
+
+/* Body text smooth fade */
+.body-text-reveal{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .7s ease .1s,transform .7s cubic-bezier(.22,1,.36,1) .1s;
+}
+.body-text-reveal.visible{opacity:1;transform:none;}
+
+/* Stats counter pop */
+.hero-stats .stat{
+  opacity:0;transform:translateY(24px) scale(.95);
+  transition:opacity .55s cubic-bezier(.22,1,.36,1),
+             transform .55s cubic-bezier(.22,1,.36,1);
+}
+.hero-stats.visible .stat:nth-child(1){opacity:1;transform:none;transition-delay:.05s;}
+.hero-stats.visible .stat:nth-child(2){opacity:1;transform:none;transition-delay:.12s;}
+.hero-stats.visible .stat:nth-child(3){opacity:1;transform:none;transition-delay:.19s;}
+.hero-stats.visible .stat:nth-child(4){opacity:1;transform:none;transition-delay:.26s;}
+
+/* Gallery items stagger in */
+.gal-item{
+  opacity:0;transform:scale(.94) translateY(20px);
+  transition:opacity .6s cubic-bezier(.22,1,.36,1),
+             transform .6s cubic-bezier(.22,1,.36,1),
+             box-shadow .4s,border-color .4s;
+}
+.gal-grid.visible .gal-item:nth-child(1){opacity:1;transform:none;transition-delay:.05s;}
+.gal-grid.visible .gal-item:nth-child(2){opacity:1;transform:none;transition-delay:.12s;}
+.gal-grid.visible .gal-item:nth-child(3){opacity:1;transform:none;transition-delay:.19s;}
+.gal-grid.visible .gal-item:nth-child(4){opacity:1;transform:none;transition-delay:.26s;}
+.gal-grid.visible .gal-item:nth-child(5){opacity:1;transform:none;transition-delay:.33s;}
+
+/* Footer animate in */
+footer{
+  opacity:0;transform:translateY(32px);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);
+}
+footer.visible{opacity:1;transform:none;}
+
+/* Admissions steps stagger */
+.steps li{
+  opacity:0;transform:translateX(-20px);
+  transition:opacity .5s ease,transform .5s cubic-bezier(.22,1,.36,1);
+}
+.adm-card.visible .steps li:nth-child(1){opacity:1;transform:none;transition-delay:.1s;}
+.adm-card.visible .steps li:nth-child(2){opacity:1;transform:none;transition-delay:.18s;}
+.adm-card.visible .steps li:nth-child(3){opacity:1;transform:none;transition-delay:.26s;}
+.adm-card.visible .steps li:nth-child(4){opacity:1;transform:none;transition-delay:.34s;}
+.adm-card.visible .steps li:nth-child(5){opacity:1;transform:none;transition-delay:.42s;}
+
+/* Disable for reduced-motion */
+@media(prefers-reduced-motion:reduce){
+  .reveal,.lbl,.sec-title::after,.ticker-bar,.mob-ticker,
+  .hero-stats .stat,.gal-item,.steps li,.body-text-reveal,footer{
+    transition:none !important;
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+  }
+}
+
+   1. ≥1440px  — Large desktop / wide screens
+   2. 1024–1439px — Laptop / small desktop
+   3. 768–1023px  — Large tablet (landscape iPad)
+   4. 480–767px   — Small tablet / large mobile
+   5. <480px   — Mobile phones
+══════════════════════════════════════════════════════ */
+
+/* ── TIER 1: Large desktop 1440px+ ── */
+@media(min-width:1440px){
+  .hero-inner{max-width:1400px;gap:72px;}
+  .sec-inner,.feat-grid,.gal-grid,.foot-top,.notice-list{max-width:1320px;}
+  .vid-grid,.achieve-grid{max-width:1500px;}
+  .hero-title{font-size:72px;}
+  nav{padding:0 5%;}
+}
+
+/* ── 14-inch laptop / 1200–1439px — compact navbar ── */
+@media(max-width:1439px) and (min-width:1200px){
+  nav{padding:0 2.5%;height:66px;}
+  .nav-links{gap:0;}
+  .nav-links>li>a{font-size:12.5px;padding:7px 8px;gap:4px;}
+  .nav-apply{padding:8px 14px!important;font-size:11.5px!important;}
+  .logo-name{font-size:15px;}
+  .logo-sub{font-size:7.5px;letter-spacing:2px;}
+  .logo-ring{width:40px;height:40px;font-size:12px;}
+  .hero-inner{gap:36px;}
+}
+
+/* ── Small laptop / 1024–1199px — hide some nav items, show hamburger ── */
+@media(max-width:1199px) and (min-width:1024px){
+  nav{
+    padding:0 2%;padding-right:72px;height:68px;
+    display:grid;grid-template-columns:56px 1fr 0;align-items:center;gap:0;
+  }
+  .nav-links{display:none!important;}
+  #ham{display:flex!important;}
+  .logo{gap:0;}
+  .logo-text-wrap{display:none;}
+  .mob-nav-center{display:flex;align-items:center;justify-content:center;}
+  .mob-nav-title{font-size:22px;}
+  .hero-inner{gap:28px;}
+  .hero-title{font-size:clamp(32px,3.8vw,52px);}
+}
+
+/* ── TIER 2: Laptop 1024–1439px — general ── */
+@media(max-width:1439px) and (min-width:1024px){
+  .achieve-grid{grid-template-columns:repeat(4,1fr);gap:16px;}
+  .vid-grid{grid-template-columns:repeat(4,1fr);gap:14px;}
+  .foot-top{grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px;}
+}
+
+/* ── TIER 3: Large tablet 768–1023px ── */
+@media(max-width:1023px) and (min-width:768px){
+  .nav-links{display:none!important;}
+  #ham{display:flex!important;}
+  nav{
+    padding:0 20px;padding-right:72px;height:72px;
+    display:grid;grid-template-columns:56px 1fr 0;align-items:center;gap:0;
+    background:transparent;
+  }
+  .logo{gap:0;}
+  .logo-text-wrap{display:none;}
+  .mob-nav-center{display:flex;align-items:center;justify-content:center;}
+  .mob-nav-title{font-size:22px;}
+
+  /* Hero: stack video above text */
+  .hero{padding:88px 5% 48px;}
+  .hero-inner{grid-template-columns:1fr;gap:32px;}
+  .hero-right{order:-1;}
+  .hero-left{order:1;text-align:center;}
+  .hero-badge{justify-content:center;}
+  .typing-row{justify-content:center;}
+  .hero-desc{margin:0 auto 28px;max-width:580px;}
+  .hero-btns{justify-content:center;}
+  .hero-stats{justify-content:center;}
+  .hero-title{font-size:clamp(34px,5vw,52px);}
+
+  /* Two-col sections */
+  .two-col{grid-template-columns:1fr;gap:36px;}
+  .img-wrap img{height:300px;}
+
+  /* Achievement grid: 2 cols */
+  .achieve-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+
+  /* Video grid: 2 cols */
+  .vid-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+
+  /* Gallery: 2 cols */
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;}
+  .gal-item.big{grid-column:span 2;}
+
+  /* Footer: brand full width top, then 3 cols */
+  .foot-top{grid-template-columns:1fr 1fr 1fr;gap:28px;}
+  .foot-brand{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;}
+  .foot-brand p{max-width:520px;}
+  .foot-brand .socials{justify-self:end;align-self:center;}
+
+  /* Notice panel */
+  .notice-overlay{padding:88px 16px 16px;align-items:flex-start;justify-content:center;}
+  .notice-panel{max-width:100%;}
+}
+
+/* ── TIER 4: Small tablet / large mobile 480–767px ── */
+@media(max-width:767px) and (min-width:480px){
+  .nav-links{display:none!important;}
+  #ham{display:flex!important;top:14px;right:14px;}
+  nav{
+    padding:0 16px;padding-right:66px;height:68px;
+    display:grid;grid-template-columns:48px 1fr 0;align-items:center;gap:0;
+  }
+  .logo{gap:0;}
+  .logo-text-wrap{display:none;}
+  .mob-nav-center{display:flex;align-items:center;justify-content:center;}
+  .mob-nav-title{font-size:20px;}
+
+  .hero{padding:80px 4% 44px;}
+  .hero-inner{grid-template-columns:1fr;gap:24px;}
+  .hero-right{order:-1;}
+  .hero-left{order:1;text-align:center;}
+  .hero-badge{justify-content:center;font-size:10px;}
+  .typing-row{justify-content:center;font-size:clamp(14px,3.5vw,20px);}
+  .hero-desc{margin:0 auto 24px;font-size:14px;}
+  .hero-btns{justify-content:center;gap:10px;}
+  .hero-title{font-size:clamp(30px,6.5vw,44px);letter-spacing:-.5px;}
+  .hero-stats{flex-wrap:wrap;}
+  .stat{min-width:calc(50% - 1px);flex:none;border-bottom:1px solid var(--bd);}
+  .stat:nth-child(odd){border-right:1px solid var(--bd);}
+  .stat:nth-child(even){border-right:none;}
+  .stat:nth-last-child(-n+2){border-bottom:none;}
+
+  .two-col{grid-template-columns:1fr;gap:28px;}
+  .img-wrap img{height:220px;}
+
+  .achieve-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .achieve-title{font-size:13.5px;}
+  .achieve-desc{display:none;}
+  .achieve-body{padding:14px;}
+
+  .vid-grid{grid-template-columns:1fr 1fr;gap:12px;}
+
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px;}
+  .gal-item.big{grid-column:span 2;height:200px;}
+  .gal-item{height:130px;}
+
+  /* Footer: brand full-width, then 2 cols */
+  .foot-top{grid-template-columns:1fr 1fr;gap:18px;}
+  .foot-brand{grid-column:1/-1;padding-bottom:18px;border-bottom:1px solid var(--bd2);margin-bottom:4px;}
+  .foot-brand p{font-size:12.5px;}
+  .foot-brand .fn{font-size:17px;}
+
+  .notice-overlay{padding:72px 12px 12px;align-items:flex-start;justify-content:center;}
+  .notice-panel{max-width:100%;}
+  .ni-desc{display:none;}
+
+  .section{padding:64px 4%;}
+  .feat-section,.vid-section,.gal-section,.achieve-section{padding:64px 4%;}
+  footer{padding:48px 4% 0;}
+
+  /* Admissions step cards */
+  .adm-card{padding:28px 22px;}
+}
+
+/* ── TIER 5: Mobile phones <480px ── */
+@media(max-width:479px){
+  .nav-links{display:none!important;}
+  #ham{display:flex!important;position:fixed;top:12px;right:12px;width:42px;height:42px;z-index:99999;}
+  nav{
+    padding:0 14px;padding-right:60px;height:64px;
+    display:grid;grid-template-columns:44px 1fr 0;align-items:center;gap:0;
+  }
+  .logo{gap:0;}
+  .logo-text-wrap{display:none;}
+  .logo-ring{width:40px;height:40px;}
+  .logo-ring img{width:40px;height:40px;}
+  .mob-nav-center{display:flex;align-items:center;justify-content:center;}
+  .mob-nav-title{font-size:18px;}
+
+  .hero{padding:72px 4% 40px;}
+  .hero-inner{grid-template-columns:1fr;gap:20px;}
+  .hero-right{order:-1;}
+  .hero-left{order:1;text-align:center;}
+  .hero-badge{justify-content:center;padding:5px 12px 5px 8px;margin-bottom:18px;}
+  .hero-badge span{font-size:10px;}
+  .hero-title{font-size:clamp(26px,8vw,38px);letter-spacing:-.5px;margin-bottom:12px;}
+  .typing-row{justify-content:center;font-size:clamp(13px,4vw,18px);min-height:28px;}
+  .hero-desc{margin:0 auto 20px;font-size:13px;line-height:1.75;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .btn-p,.btn-s{justify-content:center;width:100%;padding:12px 20px;font-size:13.5px;}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .stat{border-right:none;border-bottom:1px solid var(--bd);padding:14px 10px;}
+  .stat:nth-child(odd){border-right:1px solid var(--bd);}
+  .stat:last-child{border-bottom:none;}
+  .stat:nth-last-child(2):nth-child(odd){border-bottom:none;}
+  .stat-n{font-size:26px;}
+
+  .two-col{grid-template-columns:1fr;gap:24px;}
+  .img-wrap img{height:190px;}
+
+  .achieve-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .achieve-desc{display:none;}
+  .achieve-title{font-size:13px;}
+  .achieve-body{padding:12px;}
+  .achieve-cat{font-size:10px;padding:3px 9px;}
+
+  .vid-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .vid-card-title{font-size:11px;}
+  .play-circle{width:44px;height:44px;}
+  .play-circle svg{width:16px;height:16px;}
+
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:8px;}
+  .gal-item.big{grid-column:span 2;height:180px;}
+  .gal-item{height:120px;}
+
+  /* Footer — brand full-width, link cols in 2 columns */
+  .foot-top{grid-template-columns:1fr 1fr;gap:16px;}
+  .foot-brand{grid-column:1/-1;padding-bottom:18px;margin-bottom:4px;border-bottom:1px solid var(--bd2);}
+  .foot-brand .fn{font-size:18px;}
+  .foot-brand p{font-size:12.5px;margin-bottom:16px;}
+  .foot-col:nth-child(2){grid-column:1;}
+  .foot-col:nth-child(3){grid-column:2;}
+  .foot-col:nth-child(4){grid-column:1/-1;}
+  .foot-col h4{font-size:10.5px;margin-bottom:10px;letter-spacing:1px;}
+  .foot-col a{font-size:12px;}
+  .foot-bottom{flex-direction:column;align-items:center;text-align:center;gap:6px;}
+
+  .notice-overlay{padding:64px 8px 8px;align-items:flex-start;}
+  .notice-panel{border-radius:12px;}
+  .ni-thumb{width:56px;height:44px;}
+  .ni-title{font-size:12.5px;}
+  .ni-desc{display:none;}
+
+  .section{padding:52px 4%;}
+  .feat-section,.vid-section,.gal-section,.achieve-section{padding:52px 4%;}
+  .feat-grid{grid-template-columns:1fr;gap:14px;}
+  footer{padding:40px 4% 0;}
+
+  .adm-card{padding:24px 18px;}
+  .steps li{font-size:12.5px;}
+
+  .sec-title{font-size:clamp(22px,7vw,32px);}
+  .body-text{font-size:14px;}
+
+  /* Mobile menu tighter */
+  #mobMenu{padding:16px 16px 32px;}
+  .mob-link{padding:12px 14px;font-size:14px;}
+  .mob-sub a{padding:9px 16px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-ring">
+      <img width="52px" height="52px" src="img/logo/jiscollege.png" alt="JIS College Logo">
+    </div>
+    <div class="logo-text-wrap">
+      <div class="logo-name">JIS COLLEGE</div>
+      <div class="logo-sub">Jahanara Israil School & College</div>
+    </div>
+  </a>
+
+  <!-- Mobile-only centered title (absolutely positioned in nav center) -->
+  <div class="mob-nav-center">
+    <div class="mob-nav-title">JIS COLLEGE</div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#"><span class="ni">🏠</span> Home</a></li>
+    <li>
+      <a href="#"><span class="ni">🏛️</span> About JISC <span class="arr">▾</span></a>
+      <div class="dropdown"><div class="dd-inner">
+        <a href="#">🔍 JISC at a Glance!</a>
+        <a href="#">👤 Chairman's Message</a>
+        <a href="#">🎓 Principal's Message</a>
+        <a href="#">📋 Vice-Principal's Message</a>
+        <a href="#">🏢 Chief Admin Officer</a>
+        <a href="#">👨‍🏫 All Teachers</a>
+      </div></div>
+    </li>
+    <li>
+      <a href="#"><span class="ni">📚</span> Academics <span class="arr">▾</span></a>
+      <div class="dropdown"><div class="dd-inner">
+        <a href="#">📅 Get Appointment</a>
+        <a href="#">📢 Notice</a>
+        <a href="#">🗓️ Class Schedule</a>
+        <a href="#">📖 Curriculum</a>
+      </div></div>
+    </li>
+    <li>
+      <a href="#"><span class="ni">✏️</span> Admission <span class="arr">▾</span></a>
+      <div class="dropdown"><div class="dd-inner">
+        <a href="#">ℹ️ Admission Level & Procedure</a>
+        <a href="#">🌐 Online Admission</a>
+      </div></div>
+    </li>
+    <li>
+      <a href="#"><span class="ni">📞</span> Contact <span class="arr">▾</span></a>
+      <div class="dropdown"><div class="dd-inner">
+        <a href="#">🏢 Contact to Office</a>
+        <a href="#">✉️ Message to Chairman</a>
+        <a href="#">✉️ Message to Principal</a>
+      </div></div>
+    </li>
+    <li><a href="#"><span class="ni">🤝</span> Alumni</a></li>
+    <li>
+      <a href="#"><span class="ni">🎬</span> Media <span class="arr">▾</span></a>
+      <div class="dropdown"><div class="dd-inner">
+        <a href="#media" onclick="event.preventDefault();document.getElementById('media').scrollIntoView({behavior:'smooth'})">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          🎥 Video Gallery
+        </a>
+        <a href="#" onclick="event.preventDefault();document.querySelector('.gal-section').scrollIntoView({behavior:'smooth'})">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          🖼️ Photo Gallery
+        </a>
+        <a href="#" onclick="event.preventDefault();document.querySelector('.achieve-section').scrollIntoView({behavior:'smooth'})">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12M12 2a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          🏆 Achievements
+        </a>
+      </div></div>
+    </li>
+    <li>
+      <a href="#" onclick="openNoticePanel(event)" class="notice-nav-btn">
+        <span class="ni">📢</span> Notice
+        <span class="notice-badge">1</span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="nav-login-btn"><span class="ni">🔑</span> Login <span class="arr">▾</span></a>
+      <div class="dropdown"><div class="dd-inner">
+        <a href="#">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          🎒 Student Login
+        </a>
+        <a href="#">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          👨‍🏫 Teacher Login
+        </a>
+      </div></div>
+    </li>
+    <li><a href="#" class="nav-apply"><span class="ni">🎓</span> Apply Now</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HAMBURGER — OUTSIDE NAV so it has its own stacking context ══ -->
+<button id="ham" aria-label="Toggle menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- ══ MOBILE MENU ══ -->
+<div id="mobMenu">
+  <!-- Logo shown at top-left of mobile menu -->
+  <div class="mob-logo">
+    <div class="mob-logo-ring">
+      <img width="52px" height="52px" src="img/logo/jiscollege.png" alt="JIS College Logo">
+    </div>
+    <div class="mob-logo-text">
+      <div class="mob-logo-sub">JIS COLLEGE</div>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a href="#" class="mob-link" onclick="closeMob()">
+      <div class="mob-ll"><span class="mni">🏠</span> Home</div>
+    </a>
+  </div>
+  <div class="mob-item">
+    <button class="mob-link" onclick="toggleSub(this)">
+      <div class="mob-ll"><span class="mni">🏛️</span> About JISC</div><span class="mob-arr">›</span>
+    </button>
+    <div class="mob-sub">
+      <a href="#" onclick="closeMob()">🔍 JISC at a Glance!</a>
+      <a href="#" onclick="closeMob()">👤 Chairman's Message</a>
+      <a href="#" onclick="closeMob()">🎓 Principal's Message</a>
+      <a href="#" onclick="closeMob()">📋 Vice-Principal's Message</a>
+      <a href="#" onclick="closeMob()">👨‍🏫 All Teachers</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <button class="mob-link" onclick="toggleSub(this)">
+      <div class="mob-ll"><span class="mni">📚</span> Academics</div><span class="mob-arr">›</span>
+    </button>
+    <div class="mob-sub">
+      <a href="#" onclick="closeMob()">📅 Get Appointment</a>
+      <a href="#" onclick="closeMob()">📢 Notice</a>
+      <a href="#" onclick="closeMob()">🗓️ Class Schedule</a>
+      <a href="#" onclick="closeMob()">📖 Curriculum</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <button class="mob-link" onclick="toggleSub(this)">
+      <div class="mob-ll"><span class="mni">✏️</span> Admission</div><span class="mob-arr">›</span>
+    </button>
+    <div class="mob-sub">
+      <a href="#" onclick="closeMob()">ℹ️ Admission Level & Procedure</a>
+      <a href="#" onclick="closeMob()">🌐 Online Admission</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <button class="mob-link" onclick="toggleSub(this)">
+      <div class="mob-ll"><span class="mni">📞</span> Contact</div><span class="mob-arr">›</span>
+    </button>
+    <div class="mob-sub">
+      <a href="#" onclick="closeMob()">🏢 Contact to Office</a>
+      <a href="#" onclick="closeMob()">✉️ Message to Chairman</a>
+      <a href="#" onclick="closeMob()">✉️ Message to Principal</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a href="#" class="mob-link" onclick="closeMob()">
+      <div class="mob-ll"><span class="mni">🤝</span> Alumni</div>
+    </a>
+  </div>
+  <div class="mob-item">
+    <button class="mob-link" onclick="toggleSub(this)">
+      <div class="mob-ll"><span class="mni">🎬</span> Media</div><span class="mob-arr">›</span>
+    </button>
+    <div class="mob-sub">
+      <a href="#" onclick="closeMob();document.getElementById('media').scrollIntoView({behavior:'smooth'})">🎥 Video Gallery</a>
+      <a href="#" onclick="closeMob();document.querySelector('.gal-section').scrollIntoView({behavior:'smooth'})">🖼️ Photo Gallery</a>
+      <a href="#" onclick="closeMob();document.querySelector('.achieve-section').scrollIntoView({behavior:'smooth'})">🏆 Achievements</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a href="#" class="mob-link" onclick="closeMob();openNoticePanel(event)">
+      <div class="mob-ll"><span class="mni">📢</span> Notice</div>
+      <span class="notice-badge" style="margin-left:auto;margin-right:8px;">1</span>
+    </a>
+  </div>
+  <div class="mob-item">
+    <div class="mob-login-btns">
+      <div class="mob-login-label"><span class="mni">🔑</span> Login</div>
+      <div class="mob-login-row">
+        <a href="#" class="mob-login-btn-s" onclick="closeMob()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div>
+            <div class="mlb-title">Student</div>
+            <div class="mlb-sub">Access portal</div>
+          </div>
+        </a>
+        <a href="#" class="mob-login-btn-t" onclick="closeMob()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <div>
+            <div class="mlb-title">Teacher</div>
+            <div class="mlb-sub">Staff portal</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a href="#" class="mob-cta-btn" onclick="closeMob()">
+      <span class="mni">🎓</span> Online Admission — Apply Free
+    </a>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="glow-r"></div>
+  <div class="ptcls" id="ptcls"></div>
+
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="ldot"></div>
+        <span>South Bangladesh's No.1 English Version Institution · Est. 2010</span>
+      </div>
+      <h1 class="hero-title">Welcome to<br><span class="grad-text">JIS COLLEGE</span></h1>
+      <div class="typing-row">
+        <span style="margin-right:8px;">We shape&nbsp;</span>
+        <span id="typedText"></span><span class="cur"></span>
+      </div>
+      <p class="hero-desc">Jahanara Israil School & College — delivering world-class English Version education to 1,000+ students from Playgroup to Higher Secondary in the heart of Barishal since 2010.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-p">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Apply Online — Free
+        </a>
+        <a href="#" class="btn-s" onclick="openNoticePanel(event)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+          Notice Board
+        </a>
+        <a href="#media" class="btn-s">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Media
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-n" data-t="1000" data-s="+">0</div><div class="stat-l">Students</div></div>
+        <div class="stat"><div class="stat-n" data-t="15" data-s=" Yrs">0</div><div class="stat-l">Excellence</div></div>
+        <div class="stat"><div class="stat-n" data-t="200" data-s="+">0</div><div class="stat-l">Faculty</div></div>
+        <div class="stat"><div class="stat-n" data-t="98" data-s="%">0</div><div class="stat-l">Pass Rate</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT video -->
+    <div class="hero-right">
+      <div class="video-frame">
+        <!-- muted attribute required in HTML for autoplay to work in all browsers -->
+        <video id="heroVid" autoplay muted loop playsinline
+          poster="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80">
+          <source src="video/video.mp4" type="video/mp4">
+        </video>
+        <!-- Hero tap-to-play overlay (shown when hero is paused by another video) -->
+        <div class="hero-tap-overlay" id="heroTapOverlay" onclick="window.playHeroVid()" style="display:none;">
+          <div class="hero-big-play">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <p class="hero-tap-label">Tap to Play</p>
+        </div>
+        <div class="vid-glow"></div>
+        <div class="vid-label">🎓 JIS College Campus Tour</div>
+        <div class="vid-live"><div class="dot"></div><span>Live Preview</span></div>
+        <!-- Sound unlock prompt — click directly to unmute -->
+        <div id="soundPrompt" onclick="window.unlockSound()">
+          <span class="sp-icon">🔊</span>
+          <span class="sp-txt">Tap to enable sound</span>
+        </div>
+        <div id="soundToggle" onclick="window.toggleSound()">🔇 Muted</div>
+        <!-- Fullscreen button: shows expand icon normally, minimize icon when fullscreen -->
+        <button class="vid-fullscreen" onclick="window.goFullscreen()" title="Full Screen" id="fsBtn">
+          <!-- Expand icon (normal state) -->
+          <span class="fs-icon" style="display:flex;align-items:center;gap:4px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M16 21h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+            <span>Full Screen</span>
+          </span>
+          <!-- Minimize icon (shown in fullscreen via CSS + JS) -->
+          <span class="ms-icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3v5H3M21 3l-5 5M3 21l5-5M16 21v-5h5"/></svg>
+            <span>Exit Full Screen</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- desktop ticker -->
+<div class="ticker-bar reveal reveal-up">
+  <div class="ticker-inner">
+    <span>Holiday Notice — Check portal</span><span>2026 Class Schedule Published</span>
+    <span>JISC Sports 2026 Participants List</span><span>Winner List — Playgroup to Grade X</span>
+    <span>Online Admission Open — Apply Now!</span>
+    <span>Holiday Notice — Check portal</span><span>2026 Class Schedule Published</span>
+    <span>JISC Sports 2026 Participants List</span><span>Winner List — Playgroup to Grade X</span>
+    <span>Online Admission Open — Apply Now!</span>
+  </div>
+</div>
+
+
+
+
+<!-- WELCOME SECTION -->
+<section class="section">
+  <div class="sec-inner two-col">
+    <div class="reveal reveal-left">
+      <span class="lbl">About JIS College</span>
+      <h2 class="sec-title">Welcome to <span class="hl">JIS College</span></h2>
+      <p class="body-text" style="margin-bottom:16px;">The year 2010 marked the beginning of an era as the gates of Jahanara Israil School and College opened to serve southern Bangladesh. Situated in Barishal, we deliver the highest standards of institutional education based on the English National Curriculum.</p>
+      <p class="body-text" style="margin-bottom:28px;">Our foremost goal is quality modern education at an affordable cost — decentralizing excellence so families don't have to relocate to Dhaka. Today we proudly serve 1,000+ students from Playgroup to College level.</p>
+      <a href="#" class="btn-p" style="display:inline-flex;">Learn More About Us →</a>
+    </div>
+
+    <!-- Direct local video — tap to play, stops hero video when played -->
+    <div class="about-vid-wrap reveal reveal-right">
+      <div class="about-yt-frame" id="aboutVidWrap">
+        <video
+          id="aboutVid"
+          loop
+          playsinline
+          muted
+          poster="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&q=80"
+          style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;"
+        >
+          <source src="video/video.mp4" type="video/mp4">
+        </video>
+        <!-- Tap to play overlay -->
+        <div class="about-tap-overlay" id="aboutTapOverlay" onclick="window.playAboutVid()">
+          <div class="about-big-play">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <p class="about-tap-label">Tap to Play</p>
+        </div>
+      </div>
+      <div class="about-vid-corner-tl"></div>
+      <div class="about-vid-corner-br"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ACHIEVEMENTS BLOG SECTION -->
+<section class="achieve-section">
+  <div style="max-width:1200px;margin:0 auto;text-align:center;" class="reveal reveal-up">
+    <span class="lbl">Student Achievements</span>
+    <h2 class="sec-title">Recent <span class="hl">Achievements</span></h2>
+    <p class="body-text" style="max-width:520px;margin:0 auto;">Celebrating the brilliant milestones of our students across academics, technology, sports and culture.</p>
+  </div>
+  <div class="achieve-grid">
+    <a href="#" class="achieve-card reveal reveal-up stagger-1">
+      <div class="achieve-thumb-wrap">
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <span class="achieve-cat">🏆 National Champion</span>
+      </div>
+      <div class="achieve-body">
+        <div class="achieve-date">📅 June 2, 2025</div>
+        <h3 class="achieve-title">National Champions in Project Innovation & Programming Excellence</h3>
+        <p class="achieve-desc">JISC students brought home gold at the National Science & Tech Festival, winning first place in both software and hardware categories.</p>
+      </div>
+    </a>
+    <a href="#" class="achieve-card reveal reveal-up stagger-2">
+      <div class="achieve-thumb-wrap">
+        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <span class="achieve-cat">🎓 Board Excellence</span>
+      </div>
+      <div class="achieve-body">
+        <div class="achieve-date">📅 May 15, 2025</div>
+        <h3 class="achieve-title">SSC 2025 — 98% Pass Rate with 42 GPA 5.00 Results</h3>
+        <p class="achieve-desc">JIS College students shine in SSC board exams with outstanding results across all subjects, maintaining our legacy of excellence.</p>
+      </div>
+    </a>
+    <a href="#" class="achieve-card reveal reveal-up stagger-3">
+      <div class="achieve-thumb-wrap">
+        <img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <span class="achieve-cat">⚽ Sports</span>
+      </div>
+      <div class="achieve-body">
+        <div class="achieve-date">📅 February 20, 2026</div>
+        <h3 class="achieve-title">JISC Sports 2026 — Divisional Champions in Football & Athletics</h3>
+        <p class="achieve-desc">Our athletes dominated the divisional sports meet, securing top honours in football, athletics and indoor games, inspiring the whole school.</p>
+      </div>
+    </a>
+    <a href="#" class="achieve-card reveal reveal-up stagger-4">
+      <div class="achieve-thumb-wrap">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80" alt="Achievement" class="achieve-thumb"/>
+        <span class="achieve-cat">💡 Innovation</span>
+      </div>
+      <div class="achieve-body">
+        <div class="achieve-date">📅 January 10, 2026</div>
+        <h3 class="achieve-title">JISC Robotics Team Qualifies for Asia-Pacific Championship</h3>
+        <p class="achieve-desc">Our robotics club's innovative autonomous robot secured a spot in the Asia-Pacific international robotics championship 2026.</p>
+      </div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:36px;" class="reveal reveal-up stagger-5">
+    <a href="#" class="btn-s">View All Achievements →</a>
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section class="section adm-section">
+  <div class="adm-parallax-bg"></div>
+  <div class="adm-overlay"></div>
+  <div class="sec-inner two-col">
+    <div class="reveal reveal-left">
+      <span class="lbl">Virtual Admissions Hub</span>
+      <h2 class="sec-title">Explore Your <span class="hl">Future</span></h2>
+      <p class="body-text" style="margin-bottom:16px;">Welcome to our Virtual Admissions Hub — everything you need to begin your journey with JISC, digitized for your ease.</p>
+      <p class="body-text" style="margin-bottom:26px;">We welcome students from Playgroup through Higher Secondary. Our process is simple, transparent and fully available online 24/7.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#" class="btn-p">Apply Online →</a>
+        <a href="#" class="btn-s">Admission Info</a>
+      </div>
+    </div>
+    <div class="adm-card reveal reveal-right">
+      <h3>How to Apply</h3>
+      <p>Five simple steps to secure your place at JIS College.</p>
+      <ul class="steps">
+        <li><div class="step-n">1</div>Visit the Online Admission Portal</li>
+        <li><div class="step-n">2</div>Fill in the Registration Form</li>
+        <li><div class="step-n">3</div>Upload Required Documents</li>
+        <li><div class="step-n">4</div>Pay Admission Fee Online</li>
+        <li><div class="step-n">5</div>Receive Confirmation & Join!</li>
+      </ul>
+      <a href="#" class="btn-p" style="width:100%;justify-content:center;margin-top:20px;">Start Application →</a>
+    </div>
+  </div>
+</section>
+<section class="vid-section" id="media">
+  <div style="max-width:1200px;margin:0 auto;text-align:center;" class="reveal reveal-up">
+    <span class="lbl">Video Gallery</span>
+    <h2 class="sec-title">Campus <span class="hl">Videos</span></h2>
+    <p class="body-text" style="max-width:500px;margin:0 auto;">Click any video to watch in full screen. A glimpse into life at JIS College.</p>
+  </div>
+  <div class="vid-grid">
+    <div class="vid-card reveal reveal-up stagger-1" onclick="openModal('dQw4w9WgXcQ')">
+      <img class="vid-thumb" src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Campus Tour"/>
+      <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">Campus Tour 2025</div></div>
+      <div class="vid-dur">5:32</div>
+    </div>
+    <div class="vid-card reveal reveal-up stagger-2" onclick="openModal('ysz5S6PUM-U')">
+      <img class="vid-thumb" src="https://img.youtube.com/vi/ysz5S6PUM-U/mqdefault.jpg" alt="Graduation"/>
+      <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">Graduation Ceremony 2025</div></div>
+      <div class="vid-dur">8:14</div>
+    </div>
+    <div class="vid-card reveal reveal-up stagger-3" onclick="openModal('LXb3EKWsInQ')">
+      <img class="vid-thumb" src="https://img.youtube.com/vi/LXb3EKWsInQ/mqdefault.jpg" alt="Sports Day"/>
+      <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">JISC Sports Day 2026</div></div>
+      <div class="vid-dur">12:06</div>
+    </div>
+    <div class="vid-card reveal reveal-up stagger-4" onclick="openModal('M7FIvfx5J10')">
+      <img class="vid-thumb" src="https://img.youtube.com/vi/M7FIvfx5J10/mqdefault.jpg" alt="Science Fair"/>
+      <div class="vid-play-btn"><div class="play-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vid-card-title">Science Fair Exhibition</div></div>
+      <div class="vid-dur">7:48</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px;" class="reveal reveal-up stagger-4">
+    <a href="#" class="btn-view-all-vid">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      View All Videos
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal-box"><button class="modal-close" onclick="closeModal()">✕</button><iframe id="modalIframe" src="" allowfullscreen allow="autoplay;encrypted-media"></iframe></div>
+</div>
+
+<!-- GALLERY -->
+<section class="gal-section">
+  <div style="max-width:1200px;margin:0 auto;" class="reveal reveal-up">
+    <span class="lbl">Recent Gallery</span>
+    <h2 class="sec-title">Photo <span class="hl">Moments</span></h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item big reveal reveal-scale stagger-1"><img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80" alt="Grad"/><div class="gal-cap"><span>Graduation Ceremony 2025</span></div></div>
+    <div class="gal-item reveal reveal-up stagger-2"><img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=500&q=80" alt="Sports"/><div class="gal-cap"><span>JISC Sports 2026</span></div></div>
+    <div class="gal-item reveal reveal-up stagger-3"><img src="https://images.unsplash.com/photo-1581726690015-c9861fa5057f?w=500&q=80" alt="Lab"/><div class="gal-cap"><span>Science Lab</span></div></div>
+    <div class="gal-item reveal reveal-up stagger-4"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80" alt="Class"/><div class="gal-cap"><span>Digital Classroom</span></div></div>
+    <div class="gal-item reveal reveal-up stagger-5"><img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=500&q=80" alt="Students"/><div class="gal-cap"><span>Campus Life</span></div></div>
+  </div>
+  <div style="text-align:center;margin-top:28px;" class="reveal reveal-up stagger-6">
+    <a href="#" class="btn-s">View Full Gallery →</a>
+  </div>
+</section>
+
+<!-- NOTICE POPUP MODAL -->
+<div class="notice-overlay" id="noticeOverlay" onclick="closeNoticeOutside(event)">
+  <div class="notice-panel" id="noticePanel">
+    <div class="notice-panel-header">
+      <div class="notice-panel-title">
+        <span class="np-icon">📢</span>
+        <span>Notice Board</span>
+        <span class="np-count">1 New</span>
+      </div>
+      <button class="notice-close" onclick="closeNotice()">✕</button>
+    </div>
+    <div class="notice-list">
+      <!-- Notice 1 — NEW (red dot) -->
+      <a href="#" class="notice-item new-notice">
+        <div class="ni-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1534170819-a46d0083e053?w=200&q=80" alt="Notice" class="ni-thumb"/>
+          <span class="ni-new-dot"></span>
+        </div>
+        <div class="ni-body">
+          <span class="ni-cat">🏖️ Holiday</span>
+          <h4 class="ni-title">Holiday Notice — Annual Sports Day Postponed</h4>
+          <p class="ni-desc">The Annual Sports Day scheduled for February 28, 2026 has been postponed due to unforeseen circumstances. A revised date will be announced shortly.</p>
+          <div class="ni-meta">
+            <span class="ni-date">📅 February 10, 2026 · 7:20 AM</span>
+            <span class="ni-new-tag">NEW</span>
+          </div>
+        </div>
+      </a>
+      <!-- Notice 2 -->
+      <a href="#" class="notice-item">
+        <div class="ni-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&q=80" alt="Notice" class="ni-thumb"/>
+        </div>
+        <div class="ni-body">
+          <span class="ni-cat">📅 Schedule</span>
+          <h4 class="ni-title">2026 Class Schedule – JIS College Published</h4>
+          <p class="ni-desc">The official class schedule for all grades from Playgroup to College level has been published for the 2026 academic year. Please download from the portal.</p>
+          <div class="ni-meta"><span class="ni-date">📅 February 9, 2026 · 10:55 AM</span></div>
+        </div>
+      </a>
+      <!-- Notice 3 -->
+      <a href="#" class="notice-item">
+        <div class="ni-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?w=200&q=80" alt="Notice" class="ni-thumb"/>
+        </div>
+        <div class="ni-body">
+          <span class="ni-cat">⚽ Sports</span>
+          <h4 class="ni-title">JISC SPORTS 2026 Disguise Participants List</h4>
+          <p class="ni-desc">The list of selected participants for the JISC Sports 2026 Disguise event is now available. Check your name and report to the PE department.</p>
+          <div class="ni-meta"><span class="ni-date">📅 January 28, 2026 · 7:46 PM</span></div>
+        </div>
+      </a>
+      <!-- Notice 4 -->
+      <a href="#" class="notice-item">
+        <div class="ni-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=200&q=80" alt="Notice" class="ni-thumb"/>
+        </div>
+        <div class="ni-body">
+          <span class="ni-cat">🏆 Results</span>
+          <h4 class="ni-title">JISC Sports 2026 Winner List Playgroup to Grade X</h4>
+          <p class="ni-desc">Official results and winner list for all sports events from Playgroup through Grade X is now published. Congratulations to all participants and winners!</p>
+          <div class="ni-meta"><span class="ni-date">📅 January 28, 2026 · 11:57 AM</span></div>
+        </div>
+      </a>
+      <!-- Notice 5 -->
+      <a href="#" class="notice-item">
+        <div class="ni-thumb-wrap">
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=200&q=80" alt="Notice" class="ni-thumb"/>
+        </div>
+        <div class="ni-body">
+          <span class="ni-cat">📋 Selection</span>
+          <h4 class="ni-title">Selected Participants List — Grades VI–IX (Sports 2026)</h4>
+          <p class="ni-desc">Students selected to participate in the JISC Sports 2026 championship events for Grades VI through IX. Contact the sports coordinator for further instructions.</p>
+          <div class="ni-meta"><span class="ni-date">📅 January 25, 2026 · 4:21 PM</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="notice-panel-footer">
+      <a href="#" class="btn-s" style="font-size:13px;padding:10px 20px;">View All Notices →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="fn">JIS COLLEGE</div>
+      <p>Jahanara Israil School & College — South Bangladesh's first private English Version institution. Charitable, non-profit, excellence-driven since 2010.</p>
+      <div class="socials">
+        <a href="#" class="soc-btn">f</a><a href="#" class="soc-btn">in</a>
+        <a href="#" class="soc-btn">▶</a><a href="#" class="soc-btn">◉</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Resources</h4>
+      <a href="#">Class Schedule</a><a href="#">Notice Board</a>
+      <a href="#">Video Gallery</a><a href="#">Photo Gallery</a>
+      <a href="#">Achievements</a><a href="#">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h4>Academics</h4>
+      <a href="#">Curriculum</a><a href="#">Get Appointment</a>
+      <a href="#">All Teachers</a><a href="#">Virtual Tour</a><a href="#">Online Admission</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="#">📍 Barishal, Bangladesh</a>
+      <a href="#">📞 01751-505090</a>
+      <a href="#">✉️ <span class="__cf_email__" data-cfemail="f0999e969fb09a9983de959485de9294">[email&#160;protected]</span></a>
+      <a href="#">Contact Office</a><a href="#">Message Chairman</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 Jahanara Israil School & College · All rights reserved.</span>
+    <span>Crafted with ❤️ for Barishal</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Run immediately — do NOT wait for DOMContentLoaded for global functions
+// so onclick="" attributes can find them right away
+
+/* ══ NAVBAR SCROLL — blue glass effect ══ */
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('navbar');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
+}, {passive: true});
+
+/* ══ HAMBURGER ══ */
+var _menuOpen = false;
+function _getHam(){ return document.getElementById('ham'); }
+function _getMob(){ return document.getElementById('mobMenu'); }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var ham = _getHam();
+  var mob = _getMob();
+  if (!ham || !mob) return;
+
+  ham.addEventListener('click', function(e) {
+    e.stopPropagation();
+    _menuOpen = !_menuOpen;
+    ham.classList.toggle('active', _menuOpen);
+    mob.classList.toggle('open', _menuOpen);
+    document.body.style.overflow = _menuOpen ? 'hidden' : '';
+  });
+});
+
+window.closeMob = function() {
+  _menuOpen = false;
+  var ham = _getHam(), mob = _getMob();
+  if (ham) ham.classList.remove('active');
+  if (mob) mob.classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+window.toggleSub = function(btn) {
+  var sub = btn.nextElementSibling;
+  var isOpen = sub.classList.contains('open');
+  document.querySelectorAll('.mob-sub.open').forEach(function(s){ s.classList.remove('open'); });
+  document.querySelectorAll('.mob-link.expanded').forEach(function(b){ b.classList.remove('expanded'); });
+  if (!isOpen) { sub.classList.add('open'); btn.classList.add('expanded'); }
+};
+
+/* ══ VIDEO MANAGER — mutual pause system ══ */
+
+var _pageVideos = [];
+
+window.registerPageVideo = function(vid) {
+  if (vid && _pageVideos.indexOf(vid) === -1) _pageVideos.push(vid);
+};
+
+/* Pause & mute all OTHER videos, show their tap overlay if they have one */
+window.pauseOtherVideos = function(activeVid) {
+  _pageVideos.forEach(function(v) {
+    if (v !== activeVid) {
+      if (!v.paused) { v.pause(); }
+      v.muted = true;
+      /* Show hero tap overlay if hero is paused */
+      if (v.id === 'heroVid') {
+        var o = document.getElementById('heroTapOverlay');
+        if (o) o.style.display = 'flex';
+      }
+    }
+  });
+};
+
+/* ── HERO: tap-to-play with sound ── */
+window.playHeroVid = function() {
+  var v = document.getElementById('heroVid');
+  var overlay = document.getElementById('heroTapOverlay');
+  if (!v) return;
+
+  /* Pause all other videos first */
+  window.pauseOtherVideos(v);
+
+  /* Play hero with sound */
+  v.muted = false;
+  v.volume = 1;
+  v.play().catch(function() {
+    v.muted = true;
+    v.play();
+  });
+
+  /* Hide overlay */
+  if (overlay) overlay.style.display = 'none';
+
+  /* Dismiss the initial sound prompt if still visible */
+  var prompt = document.getElementById('soundPrompt');
+  if (prompt) {
+    prompt.style.opacity = '0';
+    prompt.style.pointerEvents = 'none';
+    setTimeout(function(){ if(prompt.parentNode) prompt.parentNode.removeChild(prompt); }, 400);
+  }
+  var btn = document.getElementById('soundToggle');
+  if (btn) btn.textContent = '🔊 Sound On';
+  _soundUnlocked = true;
+};
+
+/* ── ABOUT: tap-to-play with sound ── */
+window.playAboutVid = function() {
+  var v = document.getElementById('aboutVid');
+  var overlay = document.getElementById('aboutTapOverlay');
+  if (!v) return;
+
+  /* Pause all other videos (including hero — shows hero overlay) */
+  window.pauseOtherVideos(v);
+
+  /* Play about with sound */
+  v.muted = false;
+  v.play().catch(function() {
+    v.muted = true;
+    v.play();
+  });
+
+  /* Show controls, hide overlay */
+  v.setAttribute('controls', '');
+  if (overlay) overlay.classList.add('hidden');
+
+  /* When about video paused → show overlay again */
+  v.onpause = function() {
+    if (overlay) overlay.classList.remove('hidden');
+  };
+  v.onplay = function() {
+    if (overlay) overlay.classList.add('hidden');
+    window.pauseOtherVideos(v);
+  };
+};
+
+
+var _soundUnlocked = false;
+
+/* One-time unlock — removes the "tap to enable" prompt */
+window.unlockSound = function() {
+  if (_soundUnlocked) return;
+  _soundUnlocked = true;
+  var v = document.getElementById('heroVid');
+  var prompt = document.getElementById('soundPrompt');
+  var btn = document.getElementById('soundToggle');
+  if (v) {
+    v.muted = false;
+    v.volume = 1;
+    v.play().catch(function(){});
+    // Pause any other videos playing
+    window.pauseOtherVideos(v);
+  }
+  if (prompt) {
+    prompt.style.opacity = '0';
+    prompt.style.pointerEvents = 'none';
+    setTimeout(function(){ if(prompt && prompt.parentNode) prompt.parentNode.removeChild(prompt); }, 500);
+  }
+  if (btn) btn.textContent = '🔊 Sound On';
+};
+
+/* Toggle mute/unmute — works independently after first unlock */
+window.toggleSound = function() {
+  var v = document.getElementById('heroVid');
+  var btn = document.getElementById('soundToggle');
+  if (!v) return;
+  if (!_soundUnlocked) {
+    window.playHeroVid();
+    return;
+  }
+  if (v.muted) {
+    v.muted = false;
+    v.volume = 1;
+    v.play().catch(function(){});
+    if (btn) btn.textContent = '🔊 Sound On';
+  } else {
+    v.muted = true;
+    if (btn) btn.textContent = '🔇 Muted';
+  }
+};
+
+/* ══ FULLSCREEN — with minimize icon toggle ══ */
+window.goFullscreen = function() {
+  var container = document.querySelector('.video-frame');
+  var v = document.getElementById('heroVid');
+  var btn = document.getElementById('fsBtn');
+
+  // Check if already fullscreen — if so, exit
+  var isFs = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+
+  if (isFs) {
+    // Exit fullscreen
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+    else if (document.msExitFullscreen) document.msExitFullscreen();
+  } else {
+    // Enter fullscreen on container
+    var el = container || v;
+    if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    else if (v && v.webkitEnterFullscreen) v.webkitEnterFullscreen();
+    else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
+    else if (el.msRequestFullscreen) el.msRequestFullscreen();
+  }
+};
+
+// Toggle button icon on fullscreen change
+(function(){
+  function onFsChange() {
+    var btn = document.getElementById('fsBtn');
+    if (!btn) return;
+    var isFs = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+    var fsIcon = btn.querySelector('.fs-icon');
+    var msIcon = btn.querySelector('.ms-icon');
+    if (isFs) {
+      if (fsIcon) fsIcon.style.display = 'none';
+      if (msIcon) msIcon.style.display = 'flex';
+      btn.style.background = 'rgba(37,99,235,.85)';
+      btn.style.borderColor = 'rgba(96,165,250,.6)';
+      btn.style.color = '#fff';
+    } else {
+      if (fsIcon) fsIcon.style.display = 'flex';
+      if (msIcon) msIcon.style.display = 'none';
+      btn.style.background = '';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }
+  }
+  document.addEventListener('fullscreenchange', onFsChange);
+  document.addEventListener('webkitfullscreenchange', onFsChange);
+  document.addEventListener('mozfullscreenchange', onFsChange);
+  document.addEventListener('MSFullscreenChange', onFsChange);
+})();
+
+/* ══ NOTICE POPUP ══ */
+window.openNoticePanel = function(e) {
+  if (e) e.preventDefault();
+  var o = document.getElementById('noticeOverlay');
+  if (o) { o.classList.add('open'); document.body.style.overflow = 'hidden'; }
+};
+window.closeNotice = function() {
+  var o = document.getElementById('noticeOverlay');
+  if (o) { o.classList.remove('open'); document.body.style.overflow = ''; }
+};
+window.closeNoticeOutside = function(e) {
+  if (e.target === document.getElementById('noticeOverlay')) window.closeNotice();
+};
+
+/* ══ YOUTUBE MODAL ══ */
+window.openModal = function(videoId) {
+  var o = document.getElementById('modalOverlay');
+  var f = document.getElementById('modalIframe');
+  if (f) f.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+  if (o) { o.classList.add('open'); document.body.style.overflow = 'hidden'; }
+};
+window.closeModal = function() {
+  var o = document.getElementById('modalOverlay');
+  var f = document.getElementById('modalIframe');
+  if (f) f.src = '';
+  if (o) { o.classList.remove('open'); document.body.style.overflow = ''; }
+};
+window.closeModalOutside = function(e) {
+  if (e.target === document.getElementById('modalOverlay')) window.closeModal();
+};
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    window.closeModal();
+    window.closeNotice();
+    window.closeMob();
+  }
+});
+
+/* ══ ON DOM READY: video init, typing, stats, particles ══ */
+document.addEventListener('DOMContentLoaded', function() {
+
+  /* Video autoplay muted (browser requires muted for autoplay) */
+  var heroVid = document.getElementById('heroVid');
+  if (heroVid) {
+    heroVid.muted = true;
+    heroVid.play().catch(function(){});
+    window.registerPageVideo(heroVid);
+
+    /* When hero plays via sound unlock buttons, pause others */
+    heroVid.addEventListener('play', function() {
+      var overlay = document.getElementById('heroTapOverlay');
+      if (overlay) overlay.style.display = 'none';
+    });
+  }
+
+  /* Register about video */
+  var aboutVid = document.getElementById('aboutVid');
+  if (aboutVid) {
+    window.registerPageVideo(aboutVid);
+  }
+
+  /* Typing effect */
+  var phrases = ['Future Leaders','Brilliant Minds','Critical Thinkers','Global Citizens','Creative Innovators','Champions of Tomorrow'];
+  var pi = 0, ci = 0, deleting = false;
+  var typedEl = document.getElementById('typedText');
+
+  if (typedEl) {
+    (function typeLoop() {
+      var phrase = phrases[pi];
+      if (!deleting) {
+        typedEl.textContent = phrase.substring(0, ci + 1);
+        ci++;
+        if (ci === phrase.length) { deleting = true; setTimeout(typeLoop, 2200); return; }
+      } else {
+        typedEl.textContent = phrase.substring(0, ci - 1);
+        ci--;
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(typeLoop, deleting ? 52 : 90);
+    })();
+  }
+
+  /* Stat counters */
+  function animStats() {
+    document.querySelectorAll('.stat-n[data-t]').forEach(function(el) {
+      var t = +el.dataset.t, s = el.dataset.s || '', c = 0, step = t / 65;
+      var tm = setInterval(function() {
+        c = Math.min(c + step, t);
+        el.textContent = Math.floor(c) + s;
+        if (c >= t) clearInterval(tm);
+      }, 18);
+    });
+  }
+  var statsObs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) { animStats(); statsObs.disconnect(); }
+  }, {threshold: 0.2});
+  var statsEl = document.querySelector('.hero-stats');
+  if (statsEl) statsObs.observe(statsEl);
+
+  /* Particles */
+  var ptcls = document.getElementById('ptcls');
+  if (ptcls) {
+    var cols = ['rgba(59,130,246,','rgba(30,64,175,','rgba(96,165,250,'];
+    for (var i = 0; i < 22; i++) {
+      var d = document.createElement('div');
+      d.className = 'ptcl';
+      var sz = Math.random() * 3 + 1.5;
+      d.style.cssText = 'width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;background:'+cols[Math.floor(Math.random()*3)]+(0.3+Math.random()*0.5)+');animation-duration:'+(9+Math.random()*14)+'s;animation-delay:'+(Math.random()*12)+'s;';
+      ptcls.appendChild(d);
+    }
+  }
+
+  /* ══ SCROLL REVEAL — COMPREHENSIVE ══ */
+  (function() {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Don't disconnect — allow re-trigger if needed for sections
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    // Core reveal elements
+    var selectors = [
+      '.reveal',
+      '.lbl',
+      '.sec-title',
+      '.ticker-bar',
+      '.mob-ticker',
+      '.section',
+      '.feat-section',
+      '.gal-section',
+      '.achieve-section',
+      '.vid-section',
+      '.adm-section',
+      '.hero-stats',
+      '.gal-grid',
+      '.adm-card',
+      'footer'
+    ];
+
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        obs.observe(el);
+      });
+    });
+
+    // Separate observer for body-text elements with slightly lower threshold
+    var textObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('.body-text-reveal').forEach(function(el) {
+      textObs.observe(el);
+    });
+  })();
+
+}); // end DOMContentLoaded
+</script>
+
+
+</body>
+</html>
