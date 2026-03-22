@@ -558,7 +558,7 @@ li:has(.nav-login-btn) .dropdown a{
 /* ══════════════════ MOBILE TICKER ══════════════════ */
 .mob-ticker{display:none;}
 @media(max-width:860px){.mob-ticker{display:block;background:var(--n3);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2);padding:11px 0;overflow:hidden;}}
-.mob-ticker-inner,.ticker-inner{display:flex;gap:64px;white-space:nowrap;width:max-content;animation:ntick 26s linear infinite;}
+.mob-ticker-inner,.ticker-inner{display:flex;gap:64px;white-space:nowrap;width:max-content;animation:ntick 10s linear infinite;}
 .mob-ticker-inner span,.ticker-inner span{font-size:12px;font-weight:500;color:var(--a4);flex-shrink:0;}
 .mob-ticker-inner span::before,.ticker-inner span::before{content:'📌 ';}
 @keyframes ntick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
@@ -2535,6 +2535,10 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="chat-field-row">
       <div class="chat-field-group">
+        <label class="chat-label">Phone <span>*</span></label>
+        <input class="chat-input" id="chatPhone" type="tel" placeholder="01XXXXXXXXX">
+      </div>
+      <div class="chat-field-group">
         <label class="chat-label">Grade <span>*</span></label>
         <select class="chat-input chat-select" id="chatGrade">
           <option value="" disabled selected>Select grade</option>
@@ -2545,10 +2549,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <option>Grade X (SSC)</option><option>HSC 1st Year</option><option>HSC 2nd Year</option>
         </select>
       </div>
-      <div class="chat-field-group">
-        <label class="chat-label">Subject</label>
-        <input class="chat-input" id="chatSubject" type="text" placeholder="e.g. Admission">
-      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Subject</label>
+      <input class="chat-input" id="chatSubject" type="text" placeholder="e.g. Admission">
     </div>
     <div class="chat-field-group">
       <label class="chat-label">Message <span>*</span></label>
@@ -2577,6 +2581,10 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="chat-field-row">
       <div class="chat-field-group">
+        <label class="chat-label">Phone <span>*</span></label>
+        <input class="chat-input" id="chrPhone" type="tel" placeholder="01XXXXXXXXX">
+      </div>
+      <div class="chat-field-group">
         <label class="chat-label">Grade <span>*</span></label>
         <select class="chat-input chat-select" id="chrGrade">
           <option value="" disabled selected>Select grade</option>
@@ -2588,10 +2596,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <option>Parent / Guardian</option>
         </select>
       </div>
-      <div class="chat-field-group">
-        <label class="chat-label">Subject <span>*</span></label>
-        <input class="chat-input" id="chrSubject" type="text" placeholder="Subject">
-      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Subject <span>*</span></label>
+      <input class="chat-input" id="chrSubject" type="text" placeholder="Subject">
     </div>
     <div class="chat-field-group">
       <label class="chat-label">Message <span>*</span></label>
@@ -2620,6 +2628,10 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <div class="chat-field-row">
       <div class="chat-field-group">
+        <label class="chat-label">Phone <span>*</span></label>
+        <input class="chat-input" id="prnPhone" type="tel" placeholder="01XXXXXXXXX">
+      </div>
+      <div class="chat-field-group">
         <label class="chat-label">Grade <span>*</span></label>
         <select class="chat-input chat-select" id="prnGrade">
           <option value="" disabled selected>Select grade</option>
@@ -2631,10 +2643,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <option>Parent / Guardian</option>
         </select>
       </div>
-      <div class="chat-field-group">
-        <label class="chat-label">Subject <span>*</span></label>
-        <input class="chat-input" id="prnSubject" type="text" placeholder="Subject">
-      </div>
+    </div>
+    <div class="chat-field-group">
+      <label class="chat-label">Subject <span>*</span></label>
+      <input class="chat-input" id="prnSubject" type="text" placeholder="Subject">
     </div>
     <div class="chat-field-group">
       <label class="chat-label">Message <span>*</span></label>
@@ -2906,19 +2918,19 @@ function _success(successId, actionsId, clearKey) {
 
 window.clearForm = function(tab) {
   if(tab==='contact'){
-    ['chatName','chatSubject','chatMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+    ['chatName','chatPhone','chatSubject','chatMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';}); 
     var g=document.getElementById('chatGrade');if(g)g.selectedIndex=0;
     var f=document.getElementById('chatFile');if(f)f.value='';
     var fn=document.getElementById('chatFileName');if(fn)fn.textContent='Choose file\u2026';
     document.getElementById('contactSuccess').classList.remove('show');
   } else if(tab==='chairman'){
-    ['chrName','chrSubject','chrMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+    ['chrName','chrPhone','chrSubject','chrMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';}); 
     var g=document.getElementById('chrGrade');if(g)g.selectedIndex=0;
     var f=document.getElementById('chrFile');if(f)f.value='';
     var fn=document.getElementById('chrFileName');if(fn)fn.textContent='Choose file\u2026';
     document.getElementById('chairmanSuccess').classList.remove('show');
   } else if(tab==='principal'){
-    ['prnName','prnSubject','prnMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';});
+    ['prnName','prnPhone','prnSubject','prnMsg'].forEach(function(id){var e=document.getElementById(id);if(e)e.value='';}); 
     var g=document.getElementById('prnGrade');if(g)g.selectedIndex=0;
     var f=document.getElementById('prnFile');if(f)f.value='';
     var fn=document.getElementById('prnFileName');if(fn)fn.textContent='Choose file\u2026';
@@ -2930,31 +2942,37 @@ window.clearForm = function(tab) {
 window.submitForm = function(tab) {
   if(tab==='contact'){
     var n=document.getElementById('chatName').value.trim();
+    var p=document.getElementById('chatPhone').value.trim();
     var g=document.getElementById('chatGrade').value;
     var m=document.getElementById('chatMsg').value.trim();
     var ok=true;
     if(!n){_shake('chatName');ok=false;}
+    if(!p){_shake('chatPhone');ok=false;}
     if(!g){_shake('chatGrade');ok=false;}
     if(!m){_shake('chatMsg');ok=false;}
     if(ok) _success('contactSuccess','contactActions','contact');
   } else if(tab==='chairman'){
     var n=document.getElementById('chrName').value.trim();
+    var p=document.getElementById('chrPhone').value.trim();
     var g=document.getElementById('chrGrade').value;
     var s=document.getElementById('chrSubject').value.trim();
     var m=document.getElementById('chrMsg').value.trim();
     var ok=true;
     if(!n){_shake('chrName');ok=false;}
+    if(!p){_shake('chrPhone');ok=false;}
     if(!g){_shake('chrGrade');ok=false;}
     if(!s){_shake('chrSubject');ok=false;}
     if(!m){_shake('chrMsg');ok=false;}
     if(ok) _success('chairmanSuccess','chairmanActions','chairman');
   } else if(tab==='principal'){
     var n=document.getElementById('prnName').value.trim();
+    var p=document.getElementById('prnPhone').value.trim();
     var g=document.getElementById('prnGrade').value;
     var s=document.getElementById('prnSubject').value.trim();
     var m=document.getElementById('prnMsg').value.trim();
     var ok=true;
     if(!n){_shake('prnName');ok=false;}
+    if(!p){_shake('prnPhone');ok=false;}
     if(!g){_shake('prnGrade');ok=false;}
     if(!s){_shake('prnSubject');ok=false;}
     if(!m){_shake('prnMsg');ok=false;}
@@ -2973,6 +2991,64 @@ window.submitForm = function(tab) {
   }
 };
 </script>
+
+<!-- ══ NOTIFICATION BELL BUTTON (LEFT SIDE) ══ -->
+<button class="float-notif-btn" id="floatNotifBtn" onclick="openNoticePanel(event)" title="Notifications">
+  <svg class="notif-bell-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+    <path d="M13.73 21a2 2 0 01-3.46 0"/>
+  </svg>
+  <span class="notif-count-badge" id="notifBadge">1</span>
+</button>
+
+<style>
+/* ══ NOTIFICATION BELL BUTTON ══ */
+.float-notif-btn{
+  position:fixed;bottom:28px;left:28px;z-index:8000;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(8,20,64,.95),rgba(14,36,120,.95));
+  border:1.5px solid rgba(59,130,246,.4);
+  color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  -webkit-user-select:none;user-select:none;
+  animation:bellFloat 3s ease-in-out infinite;
+}
+.float-notif-btn:hover{
+  transform:translateY(-3px);
+  border-color:var(--a3);
+  box-shadow:0 12px 36px rgba(37,99,235,.5);
+  animation:none;
+}
+.notif-bell-icon{
+  animation:bellShake 4s ease-in-out infinite;
+  transform-origin:top center;
+}
+@keyframes bellShake{
+  0%,85%,100%{transform:rotate(0);}
+  88%{transform:rotate(18deg);}
+  91%{transform:rotate(-16deg);}
+  94%{transform:rotate(12deg);}
+  97%{transform:rotate(-8deg);}
+  99%{transform:rotate(4deg);}
+}
+@keyframes bellFloat{
+  0%,100%{box-shadow:0 8px 28px rgba(0,0,0,.45),0 0 0 0 rgba(59,130,246,.45);}
+  50%{box-shadow:0 8px 28px rgba(0,0,0,.45),0 0 0 10px rgba(59,130,246,.0);}
+}
+.notif-count-badge{
+  position:absolute;top:-2px;right:-2px;
+  min-width:18px;height:18px;padding:0 4px;
+  background:#ef4444;border:2px solid var(--n1);
+  border-radius:100px;font-size:10px;font-weight:700;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Outfit',sans-serif;
+}
+@media(max-width:479px){
+  .float-notif-btn{bottom:20px;left:16px;width:46px;height:46px;}
+}
+</style>
 
 </body>
 </html>
